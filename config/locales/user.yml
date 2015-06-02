@@ -1,0 +1,14 @@
+pt:
+  activerecord:
+    attributes:
+      entity:
+        name: Nome
+        password_confirmation: Confirmação da Password
+        address: Morada
+        zipcode: Código Postal
+        place: Localidade
+        contact: Contatos
+        site: Página
+        nif: NIF
+        professional_activity: Atividade Profissional
+        presentation: Apresentação

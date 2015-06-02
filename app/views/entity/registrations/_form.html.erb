@@ -1,0 +1,50 @@
+<%= f.error_notification %>
+
+<div class="row">
+  <%= f.input :email, wrapper_html: { class: 'col-xs-6' } %>
+</div>
+
+<div class="row">
+  <%= f.input :password, wrapper_html: { class: 'col-xs-6' } %>
+  <%= f.input :password_confirmation, wrapper_html: { class: 'col-xs-6' } %>
+</div>
+
+<div class="row">
+  <%= f.input :name, wrapper_html: { class: 'col-xs-6' } %>
+  <%#= f.input :photo %>
+</div>
+
+<div class="row">
+  <%= f.input :address, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+</div>
+
+<div class="row">
+  <%= f.input :zipcode, wrapper_html: { class: 'col-xs-2' } %>
+  <%= f.input :place, wrapper_html: { class: 'col-xs-6 col-xs-offset-4' } %>
+</div>
+
+<div class="row">
+  <%= f.input :contact, wrapper_html: { class: 'col-xs-2' } %>
+  <%= f.input :other_contact, wrapper_html: { class: 'col-xs-2' }, label_html: { class: 'invisible' } %>
+  <%= f.input :site, wrapper_html: { class: 'col-xs-6 col-xs-offset-2' } %>
+</div>
+
+<div class="row">
+  <%= f.input :nif, wrapper_html: { class: 'col-xs-2' } %>
+</div>
+
+<div class="row">
+  <%= f.input :professional_activity, collection: [], wrapper_html: { class: 'col-xs-3' } %>
+</div>
+
+<div class="row">
+  <%= f.input :presentation, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+</div>
+
+<div class="row">
+  <%= f.button :submit, class: 'btn btn-success btn-submit' %>
+
+  <% if @entity.persisted? %>
+    <%= link_to 'Cancelar', entity_registration_path(@entity), class: 'btn btn-default' %>
+  <% end %>
+</div>
