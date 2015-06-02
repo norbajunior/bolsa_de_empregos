@@ -5,6 +5,12 @@ class Candidates::RegistrationsControllerTest < ActionController::TestCase
     @candidate = users(:norberto)
   end
 
+  test "should get index" do
+    get :index
+
+    assert_response :success
+  end
+  
   test "should get new" do
     get :new
 

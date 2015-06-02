@@ -1,6 +1,10 @@
 class Candidates::RegistrationsController < ApplicationController
   before_action :set_candidate, only: [:edit, :show, :update]
 
+  def index
+    @candidates = Candidate.all
+  end
+
   def new
     @candidate = Candidate.new
   end
