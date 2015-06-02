@@ -1,6 +1,11 @@
 pt:
+  submit: &submit
+    create: "Registar"
+    update: "Ok"
+
   helpers:
     submit:
       entity:
-        create: "Registar"
-        update: "Ok"
+        <<: *submit
+      candidate:
+        <<: *submit

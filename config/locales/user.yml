@@ -1,14 +1,29 @@
 pt:
+  attributes: &shared_attributes
+    name: Nome
+    password_confirmation: Confirmação da Password
+    address: Morada
+    zipcode: Código Postal
+    place: Localidade
+    contact: Contatos
+    presentation: Apresentação
+
   activerecord:
     attributes:
       entity:
-        name: Nome
-        password_confirmation: Confirmação da Password
-        address: Morada
-        zipcode: Código Postal
-        place: Localidade
-        contact: Contatos
+        <<: *shared_attributes
         site: Página
         nif: NIF
         professional_activity: Atividade Profissional
-        presentation: Apresentação
+
+      candidate:
+        <<: *shared_attributes
+        site: Página Pessoal
+        date_of_birth: Data de Nascimento
+        identity_number: Bilhete de Identidade
+        cv: Curriculum Vitae
+        professional_area: Área Profissional
+        scholarity: Nível de Habilitação
+        education: Habilitações Literárias
+        employment_status: Situação Profissional
+        experience: Experiência Profissional

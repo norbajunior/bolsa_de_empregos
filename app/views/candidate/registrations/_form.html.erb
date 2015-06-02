@@ -1,0 +1,43 @@
+<%= f.error_notification %>
+
+<%= render 'shared_fields', f: f %>
+
+<div class="row">
+  <%= f.input :date_of_birth, as: :datepicker, wrapper_html: { class: 'col-xs-2' } %>
+
+  <%= f.input :identity_number, wrapper_html: { class: 'col-xs-2 col-xs-offset-4' } %>
+</div>
+
+<div class="row">
+  <%= f.input :cv, wrapper_html: { class: 'col-xs-2' } %>
+
+  <%= f.input :professional_area, collection: [], wrapper_html: { class: 'col-xs-3 col-xs-offset-4' } %>
+</div>
+
+<div class="row">
+  <%= f.input :presentation, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+</div>
+
+<div class="row">
+  <%= f.input :scholarity, collection: [], wrapper_html: { class: 'col-xs-2' } %>
+</div>
+
+<div class="row">
+  <%= f.input :education, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+</div>
+
+<div class="row">
+  <%= f.input :employment_status, collection: [], wrapper_html: { class: 'col-xs-2' } %>
+</div>
+
+<div class="row">
+  <%= f.input :experience, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+</div>
+
+<div class="row">
+  <%= f.button :submit, class: 'btn btn-success btn-submit' %>
+
+  <% if @candidate.persisted? %>
+    <%= link_to 'Cancelar', entity_registration_path(@entity), class: 'btn btn-default' %>
+  <% end %>
+</div>
