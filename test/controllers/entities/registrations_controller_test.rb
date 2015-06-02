@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Entity::RegistrationsControllerTest < ActionController::TestCase
+class Entities::RegistrationsControllerTest < ActionController::TestCase
   def setup
     @entity = users(:wiremaze)
   end
@@ -28,7 +28,7 @@ class Entity::RegistrationsControllerTest < ActionController::TestCase
 
     assert_response :redirect
 
-    assert_redirected_to entity_registration_path(assigns(:entity))
+    assert_redirected_to entities_registration_path(assigns(:entity))
   end
 
   test "should create entity" do
@@ -51,7 +51,7 @@ class Entity::RegistrationsControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to entity_registration_path(assigns(:entity))
+    assert_redirected_to entities_registration_path(assigns(:entity))
 
     # assert_equal 'Entidade registada com sucesso.', flash[:notice]
   end

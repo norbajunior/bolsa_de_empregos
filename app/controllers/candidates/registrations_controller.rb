@@ -1,4 +1,4 @@
-class Candidate::RegistrationsController < ApplicationController
+class Candidates::RegistrationsController < ApplicationController
   before_action :set_candidate, only: [:edit, :show, :update]
 
   def new
@@ -12,13 +12,13 @@ class Candidate::RegistrationsController < ApplicationController
   def create
     @candidate = Candidate.create(candidate_params)
 
-    respond_with @candidate, location: candidate_registration_path(@candidate)
+    respond_with @candidate, location: candidates_registration_path(@candidate)
   end
 
   def update
     @candidate.update_attributes(candidate_params)
 
-    respond_with @candidate, location: candidate_registration_path(@candidate)
+    respond_with @candidate, location: candidates_registration_path(@candidate)
   end
 
   private

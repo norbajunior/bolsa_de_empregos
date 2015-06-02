@@ -38,6 +38,6 @@
   <%= f.button :submit, class: 'btn btn-success btn-submit' %>
 
   <% if @candidate.persisted? %>
-    <%= link_to 'Cancelar', entity_registration_path(@entity), class: 'btn btn-default' %>
+    <%= link_to 'Cancelar', candidates_registration_path(@candidate), class: 'btn btn-default' %>
   <% end %>
 </div>

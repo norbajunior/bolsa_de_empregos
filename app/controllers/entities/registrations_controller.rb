@@ -1,4 +1,4 @@
-class Entity::RegistrationsController < ApplicationController
+class Entities::RegistrationsController < ApplicationController
   before_action :set_entity, only: [:edit, :show, :update]
 
   def index
@@ -16,13 +16,13 @@ class Entity::RegistrationsController < ApplicationController
   def create
     @entity = Entity.create(entity_params)
 
-    respond_with @entity, location: entity_registration_path(@entity)
+    respond_with @entity, location: entities_registration_path(@entity)
   end
 
   def update
     @entity.update_attributes(entity_params)
 
-    respond_with @entity, location: entity_registration_path(@entity)
+    respond_with @entity, location: entities_registration_path(@entity)
   end
 
   private

@@ -1,9 +1,13 @@
 BolsaDeEmpregos::Application.routes.draw do
-  namespace :candidate do
+  namespace :candidates do
     resources :registrations
+
+    get '/', to: 'registrations#index'
   end
 
-  namespace :entity do
+  namespace :entities do
     resources :registrations
+
+    get '/', to: 'registrations#index'
   end
 end

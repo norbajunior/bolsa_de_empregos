@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Candidate::RegistrationsControllerTest < ActionController::TestCase
+class Candidates::RegistrationsControllerTest < ActionController::TestCase
   def setup
     @candidate = users(:norberto)
   end
@@ -41,7 +41,7 @@ class Candidate::RegistrationsControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to candidate_registration_path(assigns(:candidate))
+    assert_redirected_to candidates_registration_path(assigns(:candidate))
 
     # assert_equal 'Candidato registado com sucesso.', flash[:notice]
   end
@@ -52,6 +52,6 @@ class Candidate::RegistrationsControllerTest < ActionController::TestCase
 
     assert_response :redirect
 
-    assert_redirected_to candidate_registration_path(assigns(:candidate))
+    assert_redirected_to candidates_registration_path(assigns(:candidate))
   end
 end
