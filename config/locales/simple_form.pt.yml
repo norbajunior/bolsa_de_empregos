@@ -1,0 +1,6 @@
+pt:
+  helpers:
+    submit:
+      entity:
+        create: "Registar"
+        update: "Ok"
