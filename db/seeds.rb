@@ -22,3 +22,17 @@ Entity.create({
   contact: '(+351) 228 328 813',
   other_contact: '(+351) 228 328 823'
 })
+
+Candidate.create({
+  email: 'norbejunior@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  name: 'Norberto Oliveira Junior',
+  address: 'Largo do Priorado, 80',
+  zipcode: '4050-476',
+  place: 'Porto',
+  site: 'http://linkedin.com/in/norbajunior',
+  presentation: 'Ruby on Rails Engineer',
+  contact: '(+351) 917 131 878',
+  experience: '4 years working with web development',
+})
