@@ -14,8 +14,10 @@
   <%= f.input :professional_area, collection: [], wrapper_html: { class: 'col-xs-3 col-xs-offset-4' } %>
 </div>
 
+<%= tinymce_assets %>
+
 <div class="row">
-  <%= f.input :presentation, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+  <%= f.input :presentation, wrapper_html: { class: 'col-xs-12' }, input_html: { class: 'tinymce', rows: 10 } %>
 </div>
 
 <div class="row">
@@ -23,7 +25,7 @@
 </div>
 
 <div class="row">
-  <%= f.input :education, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+  <%= f.input :education, wrapper_html: { class: 'col-xs-12' }, input_html: { class: 'tinymce', rows: 10 } %>
 </div>
 
 <div class="row">
@@ -31,8 +33,10 @@
 </div>
 
 <div class="row">
-  <%= f.input :experience, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+  <%= f.input :experience, wrapper_html: { class: 'col-xs-12' }, input_html: { class: 'tinymce', rows: 10 } %>
 </div>
+
+<%= tinymce %>
 
 <div class="row">
   <%= f.button :submit, class: 'btn btn-success btn-submit' %>

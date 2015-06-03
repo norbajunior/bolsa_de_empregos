@@ -10,9 +10,13 @@
   <%= f.input :professional_activity, collection: [], wrapper_html: { class: 'col-xs-3' } %>
 </div>
 
+<%= tinymce_assets %>
+
 <div class="row">
-  <%= f.input :presentation, wrapper_html: { class: 'col-xs-12' }, input_html: { rows: 5 } %>
+  <%= f.input :presentation, wrapper_html: { class: 'col-xs-12' }, input_html: { class: 'tinymce', rows: 10 } %>
 </div>
+
+<%= tinymce %>
 
 <div class="row">
   <%= f.button :submit, class: 'btn btn-success btn-submit' %>
