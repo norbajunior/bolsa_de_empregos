@@ -9,3 +9,6 @@ pt:
         <<: *submit
       candidate:
         <<: *submit
+  simple_form:
+    error_notification:
+      default_message: "Por favor reveja os problemas abaixo:"

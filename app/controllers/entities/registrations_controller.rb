@@ -1,4 +1,6 @@
 class Entities::RegistrationsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
+
   before_action :set_entity, only: [:edit, :show, :update]
 
   def index

@@ -1,4 +1,6 @@
 class Candidates::RegistrationsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
+
   before_action :set_candidate, only: [:edit, :show, :update]
 
   def index
@@ -14,7 +16,9 @@ class Candidates::RegistrationsController < ApplicationController
   def show ; end
 
   def create
-    @candidate = Candidate.create(candidate_params)
+    @candidate = Candidate.new(candidate_params)
+
+    log_in @candidate if @candidate.save
 
     respond_with @candidate, location: candidates_registration_path(@candidate)
   end
@@ -34,6 +38,7 @@ class Candidates::RegistrationsController < ApplicationController
   def candidate_params
     params.require(:candidate).permit(:email, :password, :password_confirmation, :name,
       :address, :zipcode, :place, :site, :date_of_birth, :identity_number, :cv,
-      :professional_area, :scholarity, :education, :employment_status, :experience)
+      :professional_area, :contact, :other_contact, :scholarity, :education, :presentation,
+      :employment_status, :experience)
   end
 end

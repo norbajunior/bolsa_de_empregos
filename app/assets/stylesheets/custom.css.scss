@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.center {
+  text-align: center;
+}
+
 .btn-submit {
   margin-left: 16px;
 }
@@ -15,4 +19,38 @@
 
 .links {
   margin-top:-63px;
+}
+
+#login {
+  padding: 40px 40px;
+  margin-top: 100px;
+
+  & .btn {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+}
+
+#register-buttons .btn-block {
+  padding:50px;
+
+  &:first-of-type {
+    margin: 10px 0 30px 0;
+  }
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.navigation {
+  padding-left: 0px;
+
+  & li {
+    display: inline;
+  }
 }

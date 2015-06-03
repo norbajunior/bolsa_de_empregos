@@ -13,19 +13,25 @@
 <body>
   <header>
     <div class="container">
-      <h1>Bolsa de Empregos</h1>
+      <div class="navbar-header">
+        <h1>Bolsa de Emprego</h1>
+      </div>
 
-      <ul class="nav nav-pills">
-        <li><%= link_to 'Home', '', class: 'active', role: 'presentation' %></li>
-        <li><%= link_to 'Entidades', entities_path %></li>
-        <li><%= link_to 'Candidatos', candidates_path %></li>
-        <li><%= link_to 'Ofertas', '' %></li>
-        <li><%= link_to 'Notícias', '' %></li>
-      </ul>
+      <nav class="navbar-text navbar-right">
+        <%= render 'authentication_navbar' %>
+      </nav>
+    </div>
+
+    <div class="container">
+      <%= render 'navbar' %>
     </div>
   </header>
 
   <div class="container">
+    <% flash.each do |key, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{key}" %>
+    <% end %>
+
     <%= yield %>
   </div>
 </body>
