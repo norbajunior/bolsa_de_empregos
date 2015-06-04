@@ -1,0 +1,13 @@
+<div class="media">
+  <div class="media-left">
+    <%= link_to image_tag('https://goo.gl/S1xO1Q', class: 'media-object', width: '100px'), candidate %>
+  </div>
+
+  <div class="media-body">
+    <h5 class="media-heading"><%= link_to candidate.name, candidate %></h5>
+    <p>
+      <%= candidate.professional_area %><br />
+      <%= candidate.scholarity %><br />
+    </p>
+  </div>
+</div>

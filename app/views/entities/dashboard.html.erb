@@ -1,4 +1,4 @@
-<h2>Ofertas</h2>
+<h3>Ofertas</h3>
 
 <div class="row">
   <div class="col-xs-6 offers">
@@ -27,7 +27,7 @@
 
     <%= link_to 'Inserir Oferta', '', class: 'btn btn-success btn-insert' %>
 
-    <h2>Histórico</h2>
+    <h3>Histórico</h3>
 
     <div class="media">
       <div class="media-left">
@@ -51,15 +51,15 @@
   </div>
 
   <div class="col-xs-4 col-xs-offset-2 links">
-    <h2>Entidade</h2>
+    <h3>Entidade</h3>
 
     <%= link_to 'Editar Dados', [:edit, @entity], class: 'btn btn-primary' %>
     <%= link_to 'Alterar Password', '', class: 'btn btn-warning' %>
   </div>
 
   <div class="col-xs-4 col-xs-offset-2 interested-candidates">
-    <h2>Candidatos interessados</h2>
+    <h3>Candidatos interessados</h3>
 
-    <%= render @entity.interested_candidates %>
+    <%= render partial: 'candidates/interested', collection: @entity.interested_candidates, as: :candidate %>
   </div>
 </div>
