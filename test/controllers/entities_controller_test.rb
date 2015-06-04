@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Entities::RegistrationsControllerTest < ActionController::TestCase
+class EntitiesControllerTest < ActionController::TestCase
   def setup
     @entity = users(:wiremaze)
   end

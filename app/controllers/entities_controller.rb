@@ -1,4 +1,4 @@
-class Entities::RegistrationsController < ApplicationController
+class EntitiesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
 
   before_action :set_entity, only: [:edit, :show, :update]
@@ -18,13 +18,13 @@ class Entities::RegistrationsController < ApplicationController
   def create
     @entity = Entity.create(entity_params)
 
-    respond_with @entity, location: entities_registration_path(@entity)
+    respond_with @entity
   end
 
   def update
     @entity.update_attributes(entity_params)
 
-    respond_with @entity, location: entities_registration_path(@entity)
+    respond_with @entity
   end
 
   private

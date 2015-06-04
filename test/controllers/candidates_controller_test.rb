@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Candidates::RegistrationsControllerTest < ActionController::TestCase
+class CandidatesControllerTest < ActionController::TestCase
   def setup
     @candidate = users(:norberto)
   end
@@ -10,7 +10,7 @@ class Candidates::RegistrationsControllerTest < ActionController::TestCase
 
     assert_response :success
   end
-  
+
   test "should get new" do
     get :new
 

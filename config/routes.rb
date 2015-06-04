@@ -4,15 +4,6 @@ BolsaDeEmpregos::Application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  namespace :candidates do
-    resources :registrations
-
-    get '/', to: 'registrations#index'
-  end
-
-  namespace :entities do
-    resources :registrations
-
-    get '/', to: 'registrations#index'
-  end
+  resources :candidates
+  resources :entities
 end
