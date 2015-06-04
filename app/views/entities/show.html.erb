@@ -1,1 +1,81 @@
-<h3><%= @entity.name %></h3>
+<h2><%= @entity.name %></h2>
+
+
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="https://d1uxgic6sz1xze.cloudfront.net/uploaded/companies/logos/9d249202093728f3b79647a6f367fe05e96e0041/small.png" alt="...">
+    </a>
+
+    <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
+    <p><%= link_to 'Editar', '', class: 'btn btn-primary btn-sm' %></p>
+  </div>
+
+  <div class="media-body">
+    <div class="col-xs-10">
+      <p><%= @entity.presentation %></p>
+    </div>
+
+    <div class="col-xs-10">
+      <h4>Actividade Profissional</h4>
+
+      <p><%= @entity.professional_activity %></p>
+      <br />
+    </div>
+
+    <div class="col-xs-10">
+      <h4>Morada</h4>
+
+      <address>
+        <%= @entity.address %><br>
+        <%= @entity.zipcode %>
+      </address>
+    </div>
+
+    <div class="col-xs-10">
+      <h4>Contactos</h4>
+
+      <p>
+        <%= @entity.contact %><br>
+        <%= @entity.other_contact %><br>
+        <%= @entity.email %><br><br>
+        <%= link_to @entity.site, @entity.site %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<h3>Ofertas Activas</h3>
+
+<div class="media col-md-6">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="https://d1uxgic6sz1xze.cloudfront.net/uploaded/companies/logos/9d249202093728f3b79647a6f367fe05e96e0041/small.png" alt="...">
+    </a>
+  </div>
+
+  <div class="media-body">
+    <h5 class="media-heading">
+      <%= link_to 'Programador Web', '' %><br />
+      2012/12/1 a 2012/12/31
+    </h5>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit
+      eros nec tellus egestas rhoncus. Etiam magna neque, pharetra quis nisi in,
+      consectetur consequat lectus. Nam tristique mi a justo aliquet, sit amet
+      lobortis mi posuere. Etiam semper, massa at tincidunt interdum, magna odio
+      convallis orci, non pretium velit arcu ac lacus. Interdum et malesuada
+      fames ac ante ipsum primis in faucibus.
+    </p>
+  </div>
+
+  <%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %>
+  <%= link_to 'Editar', '', class: 'btn btn-primary btn-sm' %>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Ver entidades', entities_path, class: 'btn bt-link' %>
+  </div>
+</div>
