@@ -1,0 +1,15 @@
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= link_to candidate.name, candidate %></h4>
+    <p>
+      <%= candidate.professional_area %><br />
+      <%= candidate.scholarity %><br />
+      <%= candidate.experience.truncate 300 %>
+    </p>
+  </div>
+</div>

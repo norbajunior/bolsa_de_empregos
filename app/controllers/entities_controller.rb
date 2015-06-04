@@ -1,10 +1,13 @@
 class EntitiesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:dashboard, :edit, :update, :destroy]
 
-  before_action :set_entity, only: [:edit, :show, :update]
+  before_action :set_entity, only: [:dashboard, :edit, :show, :update]
 
   def index
     @entities = Entity.all
+  end
+
+  def dashboard
   end
 
   def new
