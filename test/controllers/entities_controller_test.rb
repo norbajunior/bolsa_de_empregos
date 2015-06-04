@@ -18,17 +18,21 @@ class EntitiesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    session[:user_id] = @entity.id
+
     get :edit, id: @entity
 
     assert_response :success
   end
 
   test "should update entity" do
+    session[:user_id] = @entity.id
+
     patch :update, id: @entity, entity: { other_contact: '(+351) 228 328 824' }
 
     assert_response :redirect
 
-    assert_redirected_to entities_registration_path(assigns(:entity))
+    assert_redirected_to entity_path(assigns(:entity))
   end
 
   test "should create entity" do
@@ -51,7 +55,7 @@ class EntitiesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to entities_registration_path(assigns(:entity))
+    assert_redirected_to entity_path(assigns(:entity))
 
     # assert_equal 'Entidade registada com sucesso.', flash[:notice]
   end

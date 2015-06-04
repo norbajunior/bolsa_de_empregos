@@ -1,5 +1,5 @@
 class EntitiesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   before_action :set_entity, only: [:edit, :show, :update]
 
@@ -16,7 +16,9 @@ class EntitiesController < ApplicationController
   def show ; end
 
   def create
-    @entity = Entity.create(entity_params)
+    @entity = Entity.new(entity_params)
+
+    log_in @entity if @entity.save
 
     respond_with @entity
   end

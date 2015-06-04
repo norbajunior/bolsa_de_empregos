@@ -18,6 +18,8 @@ class CandidatesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    session[:user_id] = @candidate.id
+
     get :edit, id: @candidate
 
     assert_response :success
@@ -47,17 +49,19 @@ class CandidatesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to candidates_registration_path(assigns(:candidate))
+    assert_redirected_to candidate_path(assigns(:candidate))
 
     # assert_equal 'Candidato registado com sucesso.', flash[:notice]
   end
 
 
   test "should update entity" do
+    session[:user_id] = @candidate.id
+    
     patch :update, id: @candidate, candidate: { other_contact: '(+351) 228 328 824' }
 
     assert_response :redirect
 
-    assert_redirected_to candidates_registration_path(assigns(:candidate))
+    assert_redirected_to candidate_path(assigns(:candidate))
   end
 end

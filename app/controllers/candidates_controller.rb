@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   before_action :set_candidate, only: [:edit, :show, :update]
 
