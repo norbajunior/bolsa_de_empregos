@@ -1,1 +1,55 @@
 <h3><%= @candidate.name %></h3>
+
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" width="140px" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAMcAAAAJGFlYmM2ZGYxLTMwZWItNGNhNS05NGY3LWIyOWY4MTBkNTIyNg.jpg" alt="...">
+    </a>
+
+    <div class="text-center">
+      <p><%= link_to 'Curriculum Vitae', '', class: 'btn btn-link btn-sm' %></p>
+      <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
+      <p><%= link_to 'Editar', '', class: 'btn btn-primary btn-sm' %></p>
+    </div>
+  </div>
+
+  <div class="media-body">
+    <div class="col-xs-10">
+      <p><%= @candidate.presentation %></p>
+    </div>
+
+    <div class="col-xs-10">
+      <h3>Dados Profissionais</h3>
+
+      <h5><strong>Situação Profissional</strong></h5>
+      <p><%= @candidate.employment_status %></p><br>
+
+      <h5><strong>Nível Habilitações</strong></h5>
+      <p><%= @candidate.scholarity %></p><br>
+
+      <h5><strong>Habilitações Literárias</strong></h5>
+      <%= @candidate.education %><br>
+
+      <h5><strong>Experiência Profissional</strong></h5>
+      <%= @candidate.experience %>
+
+      <h3>Dados Pessoais</h3>
+
+      <address>
+        <h5><strong>Morada</strong></h5>
+
+        <%= @candidate.address %><br>
+        <%= @candidate.zipcode %> <%= @candidate.place %><br>
+
+        <h5><strong>Contactos</strong></h5>
+
+        Telefone: <%= @candidate.contact %> / <%= @candidate.other_contact %><br>
+        <%= @candidate.email %><br><br>
+      </address>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <%= link_to 'Ver candidatos', candidates_path, class: 'btn btn-link' %>
+</div>
