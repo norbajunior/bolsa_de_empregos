@@ -1,10 +1,13 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:dashboard, :edit, :update, :destroy]
 
-  before_action :set_candidate, only: [:edit, :show, :update]
+  before_action :set_candidate, only: [:dashboard, :edit, :show, :update]
 
   def index
     @candidates = Candidate.all
+  end
+
+  def dashboard
   end
 
   def new

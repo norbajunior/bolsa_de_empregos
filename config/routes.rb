@@ -4,6 +4,8 @@ BolsaDeEmpregos::Application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  get 'candidates/:id/dashboard' => 'candidates#dashboard', as: :dashboard_candidate
+
   resources :candidates
   resources :entities
 end
