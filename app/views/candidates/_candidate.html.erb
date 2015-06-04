@@ -1,15 +1,18 @@
-<div class="media">
+<div class="media col-md-6 candidate">
   <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="" alt="...">
-    </a>
+    <%= link_to image_tag('https://goo.gl/S1xO1Q', class: 'media-object', width: '140px'), candidate %>
   </div>
+
   <div class="media-body">
-    <h4 class="media-heading"><%= link_to candidate.name, candidate %></h4>
+    <h5 class="media-heading"><%= link_to candidate.name, candidate %></h5>
     <p>
-      <%= candidate.professional_area %><br />
-      <%= candidate.scholarity %><br />
-      <%= candidate.experience.truncate 300 %>
+      <%= candidate.professional_area %><br>
+      <%= candidate.scholarity %><br>
     </p>
+  </div>
+
+  <div class="candidate-links">
+    <%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %>
+    <%= link_to 'Editar', [:edit, candidate], class: 'btn btn-primary btn-sm' %>
   </div>
 </div>

@@ -1,1 +1,23 @@
 <h3>Candidatos</h3>
+
+<%= simple_form_for :search, url: candidates_path, html: { class: 'form-inline' },
+    defaults: { input_html: { class: 'form-control' },
+    wrapper_html: { class: 'form-group' },
+    label_html: { class: 'sr-only' } } do |f| %>
+  <div class="form-group">
+    <%= f.label :query, class: 'sr-only' %>
+
+    <div class="input-group">
+      <div class="input-group-addon">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </div>
+      <%= f.input_field :query, placeholder: 'search' %>
+    </div>
+  </div>
+
+  <%= f.input :professional_area, collection: [], prompt: 'Área Profisional' %>
+  <%= f.input :employment_status, collection: [], prompt: 'Situação Profissional' %>
+  <%= f.input :place, collection: [], prompt: 'Concelho' %>
+<% end %>
+
+<%= render @candidates %>
