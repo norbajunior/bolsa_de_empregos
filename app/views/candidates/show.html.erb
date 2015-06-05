@@ -15,7 +15,7 @@
 
   <div class="media-body">
     <div class="col-xs-10">
-      <p><%= @candidate.presentation %></p>
+      <%= @candidate.presentation.html_safe %>
     </div>
 
     <div class="col-xs-10">
@@ -28,10 +28,10 @@
       <p><%= @candidate.scholarity_humanize %></p><br>
 
       <h5><strong>Habilitações Literárias</strong></h5>
-      <%= @candidate.education %><br>
+      <%= @candidate.education.html_safe %><br>
 
       <h5><strong>Experiência Profissional</strong></h5>
-      <%= @candidate.experience %>
+      <%= @candidate.experience.html_safe %>
 
       <h3>Dados Pessoais</h3>
 
