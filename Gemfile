@@ -7,6 +7,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'simple_form'
 gem 'tinymce-rails'
+gem 'enumerate_it'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.4'
