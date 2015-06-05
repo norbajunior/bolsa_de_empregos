@@ -1,0 +1,8 @@
+pt:
+  enumerations:
+    professional_activity:
+      information_tech: Informática
+      software_development: Desenvolvimento de Software
+      marketing: Marketing
+      tourism: Turismo
+      hotel_business: Hotelaria

@@ -1,0 +1,5 @@
+pt:
+  enumerations:
+    employment_status:
+      employed: Empregado
+      unemployed: Desempregado

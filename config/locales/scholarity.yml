@@ -1,0 +1,9 @@
+pt:
+  enumerations:
+    scholarity:
+      secondary: Secundário
+      technological: Curso Tecnológico/Nível III
+      normal_degree: Licenciatura
+      bacharel: Bacharelato
+      master: Pós-Graduação
+      doctorate: Doutorado

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_enumeration_for :place, with: Concelhos, create_scopes: true
+
   has_many :interests, foreign_key: :interested_id
   has_many :interested, class_name: 'Interest', foreign_key: :user_id
 

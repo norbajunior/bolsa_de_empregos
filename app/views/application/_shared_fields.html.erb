@@ -18,7 +18,7 @@
 
 <div class="row">
   <%= f.input :zipcode, wrapper_html: { class: 'col-xs-2' } %>
-  <%= f.input :place, wrapper_html: { class: 'col-xs-6 col-xs-offset-4' } %>
+  <%= f.input :place, collection: Concelhos, wrapper_html: { class: 'col-xs-6 col-xs-offset-4' } %>
 </div>
 
 <div class="row">

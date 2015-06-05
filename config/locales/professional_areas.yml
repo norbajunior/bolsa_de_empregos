@@ -1,0 +1,10 @@
+pt:
+  enumerations:
+    professional_area:
+      design: Designer
+      support: Analista de Suporte
+      programmer: Programador
+      web_development: Desenvolvedor Web
+      frontend: Front-End
+      analysis: Analista de Sistemas
+      database_adm: DBA

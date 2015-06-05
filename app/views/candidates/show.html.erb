@@ -22,10 +22,10 @@
       <h3>Dados Profissionais</h3>
 
       <h5><strong>Situação Profissional</strong></h5>
-      <p><%= @candidate.employment_status %></p><br>
+      <p><%= @candidate.employment_status_humanize %></p><br>
 
       <h5><strong>Nível Habilitações</strong></h5>
-      <p><%= @candidate.scholarity %></p><br>
+      <p><%= @candidate.scholarity_humanize %></p><br>
 
       <h5><strong>Habilitações Literárias</strong></h5>
       <%= @candidate.education %><br>
@@ -39,7 +39,7 @@
         <h5><strong>Morada</strong></h5>
 
         <%= @candidate.address %><br>
-        <%= @candidate.zipcode %> <%= @candidate.place %><br>
+        <%= @candidate.zipcode %> <%= @candidate.place_humanize %><br>
 
         <h5><strong>Contactos</strong></h5>
 
