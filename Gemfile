@@ -5,9 +5,12 @@ gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+
 gem 'simple_form'
 gem 'tinymce-rails'
 gem 'enumerate_it'
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '4.2.7'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.4'

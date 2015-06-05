@@ -3,9 +3,7 @@
 
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="https://d1uxgic6sz1xze.cloudfront.net/uploaded/companies/logos/9d249202093728f3b79647a6f367fe05e96e0041/small.png" alt="...">
-    </a>
+    <%= link_to image_tag(@entity.photo_url, class: 'media-object'), @entity %>
 
     <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
     <p><%= link_to 'Editar', [:edit, @entity], class: 'btn btn-primary btn-sm' %></p>

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  mount_uploader :photo, PhotoUploader
+
   has_enumeration_for :place, with: Concelhos, create_scopes: true
 
   has_many :interests, foreign_key: :interested_id

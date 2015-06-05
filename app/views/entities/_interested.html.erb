@@ -1,8 +1,6 @@
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="" alt="...">
-    </a>
+    <%= link_to image_tag(entity.photo_url(:thumb), class: 'media-object'), entity %>
   </div>
   <div class="media-body">
     <h4 class="media-heading"> <%= link_to entity.name, entity %></h4>

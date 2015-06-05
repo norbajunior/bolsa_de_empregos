@@ -2,9 +2,7 @@
 
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <img class="media-object" width="140px" src="https://goo.gl/S1xO1Q" alt="...">
-    </a>
+    <%= link_to image_tag(@candidate.photo_url, class: 'media-object'), @candidate %>
 
     <div class="text-center">
       <p><%= link_to 'Curriculum Vitae', '', class: 'btn btn-link btn-sm' %></p>

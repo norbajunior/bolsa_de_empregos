@@ -1,7 +1,7 @@
 <div class="media col-md-6 entity">
   <div class="media-left">
     <div class="media-left">
-      <%= link_to image_tag('https://d1uxgic6sz1xze.cloudfront.net/uploaded/companies/logos/9d249202093728f3b79647a6f367fe05e96e0041/small.png', class: 'media-object', width: '100px'), entity %>
+      <%= link_to image_tag(entity.photo_url(:thumb), class: 'media-object'), entity %>
     </div>
   </div>
   <div class="media-body">

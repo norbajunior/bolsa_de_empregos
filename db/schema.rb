@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603234256) do
+ActiveRecord::Schema.define(version: 20150605144438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150603234256) do
     t.text     "experience"
     t.string   "type"
     t.boolean  "backoffice",            default: false
+    t.string   "photo"
   end
 
 end
