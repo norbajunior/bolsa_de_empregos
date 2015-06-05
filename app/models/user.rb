@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
   def entity?
     type == 'Entity'
   end
+  scope :by_name, ->(name) { where('name LIKE ?', "%#{name}%") }
+  scope :place, ->(place) { where(place: place) }
 end

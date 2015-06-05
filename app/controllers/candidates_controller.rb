@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:dashboard, :edit, :show, :update]
 
   def index
-    @candidates = Candidate.all
+    @candidates = Search.by(Candidate.all, filter_params)
   end
 
   def dashboard
@@ -43,5 +43,11 @@ class CandidatesController < ApplicationController
       :address, :zipcode, :place, :site, :date_of_birth, :identity_number, :cv,
       :professional_area, :contact, :other_contact, :scholarity, :education, :presentation,
       :employment_status, :experience)
+  end
+
+  def filter_params
+    if params[:filter].present?
+      params.require(:filter).permit(:by_name, :place, :professional_area, :employment_status)
+    end
   end
 end

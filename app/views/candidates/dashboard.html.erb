@@ -32,7 +32,7 @@
 
     <h3>Empresas interessadas em mim</h3>
 
-    <%= render @candidate.interested_entities %>
+    <%= render 'entities/interested', collection: @candidate.interested_entities, as: :entity %>
   </div>
 
   <div class="col-xs-4 col-xs-offset-2 links">
