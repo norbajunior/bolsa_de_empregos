@@ -27,7 +27,7 @@ class EntitiesController < ApplicationController
   end
 
   def update
-    @entity.update_attributes(entity_params)
+    @entity.update_attributes(entity_params.except!(:password, :password_confirmation))
 
     respond_with @entity
   end

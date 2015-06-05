@@ -2,10 +2,12 @@
   <%= f.input :email, wrapper_html: { class: 'col-xs-6' } %>
 </div>
 
-<div class="row">
-  <%= f.input :password, wrapper_html: { class: 'col-xs-6' } %>
-  <%= f.input :password_confirmation, wrapper_html: { class: 'col-xs-6' } %>
-</div>
+<% if f.object.new_record? %>
+  <div class="row">
+    <%= f.input :password, wrapper_html: { class: 'col-xs-6' } %>
+    <%= f.input :password_confirmation, wrapper_html: { class: 'col-xs-6' } %>
+  </div>
+<% end %>
 
 <div class="row">
   <%= f.input :name, wrapper_html: { class: 'col-xs-6' } %>

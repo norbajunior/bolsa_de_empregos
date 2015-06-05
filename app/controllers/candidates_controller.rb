@@ -27,7 +27,7 @@ class CandidatesController < ApplicationController
   end
 
   def update
-    @candidate.update_attributes(candidate_params)
+    @candidate.update_attributes(candidate_params.except(:password, :password_confirmation))
 
     respond_with @candidate
   end
@@ -42,7 +42,7 @@ class CandidatesController < ApplicationController
     params.require(:candidate).permit(:email, :password, :password_confirmation, :name,
       :address, :zipcode, :place, :site, :date_of_birth, :identity_number, :cv,
       :professional_area, :contact, :other_contact, :scholarity, :education, :presentation,
-      :employment_status, :experience)
+      :employment_status, :experience, :photo)
   end
 
   def filter_params
