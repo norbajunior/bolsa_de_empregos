@@ -6,13 +6,6 @@ class User < ActiveRecord::Base
   has_many :interests, foreign_key: :interested_id
   has_many :interested, class_name: 'Interest', foreign_key: :user_id
 
-  def candidate?
-    type == 'Candidate'
-  end
-
-  def entity?
-    type == 'Entity'
-  end
   scope :by_name, ->(name) { where('name LIKE ?', "%#{name}%") }
   scope :place, ->(place) { where(place: place) }
 end
