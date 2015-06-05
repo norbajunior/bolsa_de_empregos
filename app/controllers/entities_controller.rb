@@ -4,7 +4,7 @@ class EntitiesController < ApplicationController
   before_action :set_entity, only: [:dashboard, :edit, :show, :update]
 
   def index
-    @entities = Entity.all
+    @entities = Search.by(Entity.all, filter_params)
   end
 
   def dashboard
@@ -34,6 +34,10 @@ class EntitiesController < ApplicationController
 
   private
 
+  def set_entity
+    @entity = Entity.find(params[:id])
+  end
+
   def entity_params
     params.require(:entity).permit(
       :email, :password, :password_confirmation, :name, :address, :zipcode,
@@ -41,7 +45,9 @@ class EntitiesController < ApplicationController
       :other_contact)
   end
 
-  def set_entity
-    @entity = Entity.find(params[:id])
+  def filter_params
+    if params[:filter]
+      params.require(:filter).permit(:by_name, :professional_activity, :place)
+    end
   end
 end
