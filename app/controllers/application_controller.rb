@@ -22,4 +22,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_path, alert: 'Por favor faça o login.'
     end
   end
+
+  protected
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
 end

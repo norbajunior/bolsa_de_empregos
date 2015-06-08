@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   before_action :authenticate_entity!, only: [:new, :create]
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_offers_entity!, only: [:update, :destroy]
 
   def index
     @offers = Search.by(Offer.all, filter_params)
@@ -50,5 +51,9 @@ class OffersController < ApplicationController
   def offer_params
     params.require(:offer).permit(:title, :start_at, :end_at, :description,
                                   :photo, :professional_activity, :contract, :active, :salary)
+  end
+
+  def authenticate_offers_entity!
+    not_found if current_entity.id != @offer.entity_id
   end
 end
