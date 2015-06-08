@@ -2,7 +2,7 @@
 
 <div class="media">
   <div class="media-left">
-    <%= link_to image_tag(@entity.photo_url, class: 'media-object'), @entity %>
+    <%= link_to image_tag(@entity.photo_url, class: 'media-object img-rounded'), @entity %>
 
     <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
     <p><%= link_to 'Editar', [:edit, @entity], class: 'btn btn-primary btn-sm' %></p>
