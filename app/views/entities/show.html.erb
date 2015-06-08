@@ -1,6 +1,5 @@
 <h2><%= @entity.name %></h2>
 
-
 <div class="media">
   <div class="media-left">
     <%= link_to image_tag(@entity.photo_url, class: 'media-object'), @entity %>
@@ -45,32 +44,7 @@
 
 <h3>Ofertas Activas</h3>
 
-<div class="media col-md-6 offers">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="https://d1uxgic6sz1xze.cloudfront.net/uploaded/companies/logos/9d249202093728f3b79647a6f367fe05e96e0041/small.png" alt="...">
-    </a>
-  </div>
-
-  <div class="media-body">
-    <h5 class="media-heading">
-      <%= link_to 'Programador Web', '' %><br />
-      2012/12/1 a 2012/12/31
-    </h5>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit
-      eros nec tellus egestas rhoncus. Etiam magna neque, pharetra quis nisi in,
-      consectetur consequat lectus. Nam tristique mi a justo aliquet, sit amet
-      lobortis mi posuere. Etiam semper, massa at tincidunt interdum, magna odio
-      convallis orci, non pretium velit arcu ac lacus. Interdum et malesuada
-      fames ac ante ipsum primis in faucibus.
-    </p>
-  </div>
-
-  <%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %>
-  <%= link_to 'Editar', '', class: 'btn btn-primary btn-sm' %>
-</div>
+<%= render partial: 'offers/offer', collection: @active_offers, locals: { display_links: true } %>
 
 <div class="row">
   <div class="col-md-12">

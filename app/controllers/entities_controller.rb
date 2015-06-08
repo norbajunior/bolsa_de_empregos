@@ -16,7 +16,9 @@ class EntitiesController < ApplicationController
 
   def edit ; end
 
-  def show ; end
+  def show
+    @active_offers = @entity.offers.active
+  end
 
   def create
     @entity = Entity.new(entity_params)
