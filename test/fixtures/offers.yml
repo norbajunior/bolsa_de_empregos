@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+ror_engineer:
+  title: Ruby on Rails Engineer
+  start_at: 2015-06-07
+  end_at: 2015-06-08
+  description: Precisamos de um Rails Engineer com pelo menos 2 anos de experiência ...
+  professional_activity: <%= ProfessionalActivity::SOFTWARE_DEVELOPMENT %>
+  contract: <%= Contract::FULL_TIME %>
+  active: true
+  salary: <%= Salary::SECOND_LEVEL %>
+  entity: users(:wiremaze)

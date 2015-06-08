@@ -1,0 +1,16 @@
+pt:
+  activemodel:
+    models:
+      offer: Oferta
+  activerecord:
+    attributes:
+      offer:
+        title: Título
+        start_at: Validade
+        description: Descrição
+        photo: Foto
+        professional_activity: Atividade Profissional
+        contract: Tipo de Contrato
+        salary: Salário
+        active: Activa
+        entity: Empresa

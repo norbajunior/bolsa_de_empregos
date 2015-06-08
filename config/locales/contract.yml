@@ -1,0 +1,7 @@
+pt:
+  enumerations:
+    contract:
+      full_time: Full time
+      part_time: Part time
+      temporary: Temporário
+      trainee: Estagiário

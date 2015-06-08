@@ -1,0 +1,38 @@
+<h3><%= @offer.title %></h3>
+
+<div class="media">
+  <div class="media-left">
+    <%= link_to image_tag(@offer.photo_url, class: 'media-object'), @offer %><br>
+
+    <div class="text-center">
+      <p><%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %></p>
+      <p><%= link_to 'Editar', [:edit, @offer], class: 'btn btn-primary btn-sm' %></p>
+    </div>
+  </div>
+
+  <div class="media-body">
+    <div class="col-xs-10">
+      <%= @offer.description %>
+
+      <h5><strong><%= l @offer.start_at %> a <%= l @offer.end_at %></strong></h5><br>
+
+      <h5><strong>Empresa</strong></h5>
+      <p><%= link_to @offer.entity_name, @offer.entity %></p><br>
+
+      <h5><strong>Atividade Profissional</strong></h5>
+      <p><%= @offer.professional_activity_humanize %></p><br>
+
+      <h5><strong>Tipo de Contrato</strong></h5>
+      <%= @offer.contract_humanize %><br>
+
+      <h5><strong>Salário</strong></h5>
+      <%= @offer.salary_humanize %>
+    </div>
+  </div>
+</div>
+
+<div class="media col-md-6 offers">
+  <h3>Outras ofertas na mesma área</h3>
+
+  <%= render partial: 'offer', collection: @similar_offers, locals: { display_links: false } %>
+</div>

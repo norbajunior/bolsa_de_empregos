@@ -1,0 +1,22 @@
+<div class="media col-md-6 offers">
+  <div class="media-left">
+    <div class="media-left">
+      <%= link_to image_tag(offer.photo_url(:thumb), class: 'media-object'), offer %>
+    </div>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading">
+      <%= link_to offer.title, offer %><br>
+      <%= l offer.start_at %> a <%= l offer.end_at %>
+    </h5>
+
+    <%= offer.description.truncate(200) %>
+  </div>
+
+  <% if display_links %>
+    <div class="links">
+      <%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %>
+      <%= link_to 'Editar', [:edit, offer], class: 'btn btn-primary btn-sm' %>
+    </div>
+  <% end %>
+</div>

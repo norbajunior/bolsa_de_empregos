@@ -1,0 +1,9 @@
+pt:
+  enumerations:
+    salary:
+      first_level: "1000 a 1500"
+      second_level: "1500 a 2000"
+      third_level: "2000 a 2500"
+      fourth_level: "2500 a 3000"
+      fifth_level: "3000 a 3500"
+      sixth_level: "3500 acima"

@@ -1,0 +1,21 @@
+<%= simple_form_for :filter, url: offers_path, method: :get, html: { class: 'form-inline' },
+    defaults: { input_html: { class: 'form-control' },
+    wrapper_html: { class: 'form-group' },
+    label_html: { class: 'sr-only' } } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: 'sr-only' %>
+
+    <div class="input-group">
+      <div class="input-group-addon">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </div>
+
+      <%= f.input_field :title, placeholder: 'Pesquisar' %>
+    </div>
+  </div>
+
+  <%= f.input :professional_activity, collection: ProfessionalActivity, prompt: 'Área Profissional' %>
+  <%= f.input :place, collection: Concelhos, prompt: 'Concelhos' %>
+<% end %>
+
+<%= render partial: 'offers/offer', collection: @offers, locals: { display_links: true } %>

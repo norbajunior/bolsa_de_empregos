@@ -1,0 +1,42 @@
+<%= simple_form_for @offer do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <%= f.input :title, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-xs-8' } %>
+    <%= f.input :start_at, as: :datepicker, wrapper_html: { class: 'col-xs-2' } %>
+    <%= f.input :end_at, as: :datepicker, label_html: { class: 'invisible' }, wrapper_html: { class: 'col-xs-2' } %>
+  </div>
+
+  <div class="row">
+    <%= f.input :description, input_html: { class: 'form-control' }, input_html: { rows: 5 }, wrapper_html: { class: 'col-xs-12' } %>
+  </div>
+
+  <div class="row">
+    <%= f.input :photo, as: :file, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-xs-2' } %>
+  </div>
+
+  <h5>
+    <strong><%= t('activerecord.attributes.offer.entity') %></strong>
+
+    <p><%= link_to current_user.name, current_user %></p>
+  </h5>
+
+  <div class="row">
+    <%= f.input :professional_activity, input_html: { class: 'form-control' }, collection: ProfessionalActivity, wrapper_html: { class: 'col-xs-3' } %>
+  </div>
+
+  <div class="row">
+    <%= f.input :contract, collection: Contract, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-xs-2' } %>
+    <%= f.input :salary, collection: Salary, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-xs-2 col-xs-offset-4' } %>
+  </div>
+
+  <div class="row">
+    <%= f.input :active, as: :boolean, wrapper_html: { class: 'col-xs-2' } %>
+  </div>
+
+  <div class="row">
+    <%= f.button :submit, class: 'btn btn-success btn-submit', wrapper_html: { class: 'col-xs-2' } %>
+
+    <%= link_to 'Cancelar', [:dashboard, current_entity], class: 'btn btn-default' %>
+  </div>
+<% end %>

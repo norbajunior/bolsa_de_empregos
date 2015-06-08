@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605144438) do
+ActiveRecord::Schema.define(version: 20150607160334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20150605144438) do
   create_table "interests", force: true do |t|
     t.integer  "interested_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "offers", force: true do |t|
+    t.string   "title"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.text     "description"
+    t.string   "photo"
+    t.integer  "entity_id",                             null: false
+    t.string   "professional_activity"
+    t.string   "contract"
+    t.boolean  "active",                default: false
+    t.string   "salary"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,5 +66,7 @@ ActiveRecord::Schema.define(version: 20150605144438) do
     t.boolean  "backoffice",            default: false
     t.string   "photo"
   end
+
+  add_foreign_key "offers", "users", name: "offers_entity_id_fk", column: "entity_id"
 
 end

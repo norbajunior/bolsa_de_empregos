@@ -9,4 +9,5 @@ BolsaDeEmpregos::Application.routes.draw do
 
   resources :candidates
   resources :entities
+  resources :offers
 end
