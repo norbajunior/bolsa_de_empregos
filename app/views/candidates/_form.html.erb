@@ -43,7 +43,7 @@
     <%= f.button :submit, class: 'btn btn-success btn-submit' %>
 
     <% if @candidate.persisted? %>
-      <%= link_to 'Cancelar', @candidate, class: 'btn btn-default' %>
+      <%= link_to 'Cancelar', [:dashboard, @candidate], class: 'btn btn-default' %>
     <% end %>
   </div>
 <% end %>
