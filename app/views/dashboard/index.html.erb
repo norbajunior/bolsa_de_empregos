@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Últimas Ofertas</h3>
+
+    <%= render partial: 'offer', collection: @offers, locals: { display_links: false } %>
+
+    <h3>Últimas Empresas</h3>
+
+    <%= render partial: 'entities/interested', collection: @entities, as: :entity %>
+  </div>
+
+  <div class="col-xs-4 col-xs-offset-2">
+    <h3>Notícias</h3>
+
+    <h3>Últimos Candidatos</h3>
+
+    <%= render partial: 'candidates/interested', collection: @candidates, as: :candidate %>
+  </div>
+</div>
