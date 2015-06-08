@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   respond_to :html, :json
 
   def authenticate_user!
-    return if logged_in? && current_user.backoffice?
+    return if backoffice?
 
     if !logged_in? || current_user.id != params[:id].to_i
       redirect_to login_path, alert: 'Por favor faça o login.'
