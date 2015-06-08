@@ -14,4 +14,12 @@ class ApplicationController < ActionController::Base
       redirect_to login_path, alert: 'Por favor faça o login.'
     end
   end
+
+  def authenticate_entity!
+    return if backoffice?
+
+    unless logged_in? || current_user.entity?
+      redirect_to login_path, alert: 'Por favor faça o login.'
+    end
+  end
 end

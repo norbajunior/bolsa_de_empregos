@@ -1,4 +1,5 @@
 class OffersController < ApplicationController
+  before_action :authenticate_entity!, only: [:new, :create]
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
   def index
