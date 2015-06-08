@@ -15,6 +15,13 @@ class Offer < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
+  scope :similar_offers, ->(offer) do
+    where(professional_activity: offer.professional_activity).
+    where.not(id: offer.id).
+    limit(4).
+    order('RANDOM()')
+  end
+
   scope :place, ->(place) do
     joins(:entity).where entities: { place: place }
   end

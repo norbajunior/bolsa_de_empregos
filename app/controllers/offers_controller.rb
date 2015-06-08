@@ -7,6 +7,8 @@ class OffersController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:id])
+    @similar_offers = Offer.similar_offers(@offer)
   end
 
   def new
