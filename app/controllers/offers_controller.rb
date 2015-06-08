@@ -1,7 +1,6 @@
 class OffersController < ApplicationController
-  before_action :authenticate_entity!, only: [:new, :create]
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_offers_entity!, only: [:update, :destroy]
+  before_action :authenticate_entity!, only: [:new, :create, :edit, :udate, :destroy]
+  before_action :authenticate_offers_entity!, only: [:edit, :update, :destroy]
 
   def index
     @offers = Search.by(Offer.all, filter_params)
@@ -38,10 +37,6 @@ class OffersController < ApplicationController
 
   private
 
-  def set_offer
-    @offer = current_user.offers.find(params[:id])
-  end
-
   def filter_params
     if params[:filter]
       params.require(:filter).permit(:title, :professional_activity, :place)
@@ -54,6 +49,8 @@ class OffersController < ApplicationController
   end
 
   def authenticate_offers_entity!
+    @offer = Offer.find(params[:id])
+
     not_found if current_entity.id != @offer.entity_id
   end
 end

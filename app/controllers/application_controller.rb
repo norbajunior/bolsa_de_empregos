@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     return if backoffice?
 
-    if !logged_in? || current_user.id != params[:id].to_i
+    unless logged_in? && current_user.id == params[:id].to_i
       redirect_to login_path, alert: 'Por favor faça o login.'
     end
   end
@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   def authenticate_entity!
     return if backoffice?
 
-    unless logged_in? || current_user.entity?
-      redirect_to login_path, alert: 'Por favor faça o login.'
+    unless logged_in? && current_user.entity?
+      redirect_to login_path, alert: 'Por favor faça o login como uma entidade.'
     end
   end
 

@@ -7,16 +7,8 @@ module SessionsHelper
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def entity?
-    current_user.type == 'Entity'
-  end
-
-  def candidate?
-    current_user.type == 'Candidate'
-  end
-
   def backoffice?
-    logged_in? && current_user.backoffice?
+    current_user.backoffice?
   end
 
   def logged_in?
