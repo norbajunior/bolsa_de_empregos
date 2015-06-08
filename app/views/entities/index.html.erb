@@ -18,4 +18,4 @@
   <%= f.input :place, collection: Concelhos, prompt: 'Concelhos' %>
 <% end %>
 
-<%= render @entities %>
+<%= render partial: 'entity', collection: @entities, locals: { display_links: true } %>

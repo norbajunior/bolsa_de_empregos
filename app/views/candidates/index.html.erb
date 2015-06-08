@@ -19,4 +19,4 @@
   <%= f.input :place, collection: Concelhos, prompt: 'Concelhos' %>
 <% end %>
 
-<%= render @candidates %>
+<%= render partial: 'candidate', collection: @candidates, locals: { display_links: true } %>

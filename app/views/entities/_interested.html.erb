@@ -3,7 +3,7 @@
     <%= link_to image_tag(entity.photo_url(:thumb), class: 'media-object img-rounded'), entity %>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"> <%= link_to entity.name, entity %></h4>
+    <h5 class="media-heading"> <%= link_to entity.name, entity %></h5>
 
     <%= entity.presentation.truncate(200).html_safe %>
   </div>

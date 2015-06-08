@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-xs-6 offers">
+  <div class="col-xs-6">
     <h3>Ofertas</h3>
 
-    <%= render partial: 'dashboard_offers', collection: @active_offers, as: :offer %>
+    <%= render partial: 'dashboard/offer', collection: @active_offers, locals: { display_links: true } %>
 
-    <%= link_to 'Inserir Oferta', offers_path, class: 'btn btn-success btn-insert' %>
+    <%= link_to 'Inserir Oferta', new_offer_path, class: 'btn btn-success btn-insert' %>
 
     <h3>Histórico</h3>
 

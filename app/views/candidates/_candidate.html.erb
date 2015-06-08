@@ -11,8 +11,10 @@
     </p>
   </div>
 
-  <div class="links">
-    <%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %>
-    <%= link_to 'Editar', [:edit, candidate], class: 'btn btn-primary btn-sm' %>
-  </div>
+  <% if display_links %>
+    <div class="links">
+      <%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %>
+      <%= link_to 'Editar', [:edit, candidate], class: 'btn btn-primary btn-sm' %>
+    </div>
+  <% end %>
 </div>

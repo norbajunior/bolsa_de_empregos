@@ -13,8 +13,10 @@
     <%= entity.presentation.truncate(200).html_safe %>
   </div>
 
-  <div class="links">
-    <%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %>
-    <%= link_to 'Editar', [:edit, entity], class: 'btn btn-primary btn-sm' %>
-  </div>
+  <% if display_links %>
+    <div class="links">
+      <%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %>
+      <%= link_to 'Editar', [:edit, entity], class: 'btn btn-primary btn-sm' %>
+    </div>
+  <% end %>
 </div>

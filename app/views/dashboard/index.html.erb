@@ -2,11 +2,15 @@
   <div class="col-xs-6">
     <h3>Últimas Ofertas</h3>
 
-    <%= render partial: 'offer', collection: @offers, locals: { display_links: false } %>
+    <%= render partial: 'offer', collection: @offers, locals: { display_links: false } %><br>
+
+    <%= link_to 'Ver todas as ofertas', offers_path %>
 
     <h3>Últimas Empresas</h3>
 
     <%= render partial: 'entities/interested', collection: @entities, as: :entity %>
+
+    <%= link_to 'Ver todas as empresas', entities_path %>
   </div>
 
   <div class="col-xs-4 col-xs-offset-2">
@@ -14,6 +18,8 @@
 
     <h3>Últimos Candidatos</h3>
 
-    <%= render partial: 'candidates/interested', collection: @candidates, as: :candidate %>
+    <%= render partial: 'candidates/interested', collection: @candidates, as: :candidate %><br>
+
+    <%= link_to 'Ver todos os candidatos', candidates_path %>
   </div>
 </div>
