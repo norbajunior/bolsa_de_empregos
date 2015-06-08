@@ -8,6 +8,8 @@ class EntitiesController < ApplicationController
   end
 
   def dashboard
+    @active_offers = @entity.offers.active
+    @inactive_offers = @entity.offers.inactive
   end
 
   def new

@@ -1,0 +1,23 @@
+<div class="media">
+  <div class="media-left">
+    <div class="media-left">
+      <%= link_to image_tag(offer.photo_url(:thumb), class: 'media-object'), offer %>
+    </div>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading">
+      <%= link_to offer.title, offer %><br>
+      <%= l offer.start_at %> a <%= l offer.end_at %>
+    </h5>
+
+    <%= offer.description.truncate(200) %>
+  </div>
+
+  <div class="media-right">
+    <%= link_to 'Editar', [:edit, offer], class: 'btn btn-primary media-object' %>
+  </div>
+
+  <div class="media-right">
+    <%= link_to 'Cancelar', '', class: 'btn btn-warning media-object' %>
+  </div>
+</div>

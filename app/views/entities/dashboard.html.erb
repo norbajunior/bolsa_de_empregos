@@ -1,53 +1,14 @@
-<h3>Ofertas</h3>
-
 <div class="row">
   <div class="col-xs-6 offers">
-    <div class="media">
-      <div class="media-left">
-        <a href="#">
-          <img class="media-object" src="..." alt="...">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">Middle aligned media</h4>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit
-        eros nec tellus egestas rhoncus. Etiam magna neque, pharetra quis nisi in,
-        consectetur consequat lectus. Nam tristique mi a justo aliquet, sit amet
-        lobortis mi posuere. Etiam semper, massa at tincidunt interdum, magna odio
-        convallis orci, non pretium velit arcu ac lacus. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus.
-      </div>
-      <div class="media-right">
-        <%= link_to 'Editar', '', class: 'btn btn-primary media-object' %>
-      </div>
-      <div class="media-right">
-        <%= link_to 'Cancelar', '', class: 'btn btn-warning media-object' %>
-      </div>
-    </div>
+    <h3>Ofertas</h3>
 
-    <%= link_to 'Inserir Oferta', '', class: 'btn btn-success btn-insert' %>
+    <%= render partial: 'dashboard_offers', collection: @active_offers, as: :offer %>
+
+    <%= link_to 'Inserir Oferta', offers_path, class: 'btn btn-success btn-insert' %>
 
     <h3>Histórico</h3>
 
-    <div class="media">
-      <div class="media-left">
-        <a href="#">
-          <img class="media-object" src="..." alt="...">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">Programador Web</h4>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit
-        eros nec tellus egestas rhoncus. Etiam magna neque, pharetra quis nisi in,
-        consectetur consequat lectus. Nam tristique mi a justo aliquet, sit amet
-        lobortis mi posuere. Etiam semper, massa at tincidunt interdum, magna odio
-        convallis orci, non pretium velit arcu ac lacus. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus.
-      </div>
-      <div class="media-right">
-        <%= link_to 'Reativar', '', class: 'btn btn-success media-object' %>
-      </div>
-    </div>
+    <%= render partial: 'offers_history', collection: @inactive_offers, as: :offer %>
   </div>
 
   <div class="col-xs-4 col-xs-offset-2 links">
