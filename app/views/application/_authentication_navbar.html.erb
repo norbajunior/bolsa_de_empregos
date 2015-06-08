@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <%= link_to current_user.name, current_user, class: 'navbar-link' %> |
+  <%= link_to current_user.name, [:dashboard, current_user], class: 'navbar-link' %> |
   <%= link_to 'Sair', logout_path, method: :delete, class: 'navbar-link' %>
 <% else %>
   <%= link_to 'Registar-me', signup_path, class: 'navbar-link' %> |
