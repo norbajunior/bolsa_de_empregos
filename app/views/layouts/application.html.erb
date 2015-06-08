@@ -28,10 +28,8 @@
   </header>
 
   <div class="container">
-    <% flash.each do |key, msg| %>
-      <%= content_tag :div, msg, class: "alert alert-#{key}" %>
-    <% end %>
-
+    <%= render 'flash_messages' %>
+    
     <%= yield %>
   </div>
 </body>
