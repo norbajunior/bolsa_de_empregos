@@ -3,6 +3,8 @@ class Candidate < User
   has_enumeration_for :professional_area
   has_enumeration_for :scholarity
 
+  mount_uploader :cv, FileUploader
+  
   has_many :entities, through: :interests, source: :user
   has_many :interested_entities, through: :interested, source: :interested
 
