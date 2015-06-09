@@ -14,6 +14,16 @@ class User < ActiveRecord::Base
   scope :place, ->(place) { where(place: place) }
 
   validates :password, confirmation: true, on: :update
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :name,
+            :email,
+            :photo,
+            :address,
+            :place,
+            :zipcode,
+            :contact,
+            :presentation, presence: true
+
   def entity?
     type == 'Entity'
   end

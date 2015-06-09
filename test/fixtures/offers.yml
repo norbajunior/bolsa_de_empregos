@@ -9,4 +9,4 @@ ror_engineer:
   contract: <%= Contract::FULL_TIME %>
   active: true
   salary: <%= Salary::SECOND_LEVEL %>
-  entity: users(:wiremaze)
+  entity: wiremaze

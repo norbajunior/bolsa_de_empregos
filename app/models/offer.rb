@@ -7,7 +7,13 @@ class Offer < ActiveRecord::Base
 
   belongs_to :entity
 
-  validates :title, :start_at, :end_at, :description, presence: true
+  validates :title,
+            :start_at,
+            :end_at,
+            :description,
+            :photo,
+            :professional_activity,
+            :contract, presence: true
 
   delegate :name, to: :entity, prefix: true
 
