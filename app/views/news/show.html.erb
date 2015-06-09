@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <div class="news-text">
       <div class="image">
-        <%= image_tag @news.image_url, class: 'img-thumbnail' %>
+        <%= image_tag @news.image_url(:news), class: 'img-thumbnail' %>
       </div>
       <%= @news.text.html_safe %>
     </div>

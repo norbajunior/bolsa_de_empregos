@@ -37,7 +37,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process resize_to_fill: [140, 140]
+    process resize_to_fit: [140, 140]
   end
 
   version :thumb do
