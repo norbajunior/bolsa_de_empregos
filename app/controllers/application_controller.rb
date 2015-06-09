@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   respond_to :html, :json
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url
+    redirect_to root_url, alert: I18n.t('flash.forbidden')
   end
 end

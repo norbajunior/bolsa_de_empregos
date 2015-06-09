@@ -203,3 +203,4 @@ pt:
     notice: '%{model} foi criado/a com sucesso'
     notice_update: '%{model} foi atualizado/a com sucesso'
     password_reset: 'Password foi atualizado com sucesso. Por favor faça o login novamente'
+    forbidden: 'Página não encontrada'
