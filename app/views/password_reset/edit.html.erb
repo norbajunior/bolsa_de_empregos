@@ -7,9 +7,21 @@
 <%= simple_form_for current_user, url: password_reset_path do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :current_password %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.button :submit, class: 'btn btn-success' %>
-  <%= link_to 'Cancelar', [:dashboard, current_user], class: 'btn btn-default' %>
+  <div class="row">
+    <%= f.input :current_password, wrapper_html: { class: 'col-xs-4'} %>
+  </div>
+
+  <div class="row">
+    <%= f.input :password, wrapper_html: { class: 'col-xs-4'} %>
+  </div>
+
+  <div class="row">
+    <%= f.input :password_confirmation, wrapper_html: { class: 'col-xs-4'} %>
+  </div>
+
+  <div class="row">
+    <%= f.button :submit, class: 'btn btn-success btn-submit' %>
+    
+    <%= link_to 'Cancelar', [:dashboard, current_user], class: 'btn btn-default' %>
+  </div>
 <% end %>
