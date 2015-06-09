@@ -32,7 +32,13 @@
 </div>
 
 <div class="media col-md-6 offers">
-  <h3>Outras ofertas na mesma área</h3>
+  <% if current_user.entity? %>
+    <h3>Candidatos</h3>
 
-  <%= render partial: 'offer', collection: @similar_offers, locals: { display_links: false } %>
+    <%#= render @offer.candidates %>
+  <% else %>
+    <h3>Outras ofertas na mesma área</h3>
+
+    <%= render partial: 'offer', collection: @similar_offers, locals: { display_links: false } %>
+  <% end %>
 </div>

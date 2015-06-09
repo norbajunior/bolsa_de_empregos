@@ -1,0 +1,13 @@
+pt:
+  activerecord:
+    models:
+      news: Notícia
+    attributes:
+      news:
+        title: Título
+        date: Data
+        summary: Sumário
+        text: Texto
+        image: Imagem
+        featured: Aparece em destaque
+        active: Activa

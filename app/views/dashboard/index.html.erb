@@ -8,13 +8,17 @@
 
     <h3>Últimas Empresas</h3>
 
-    <%= render partial: 'entities/interested', collection: @entities, as: :entity %>
+    <%= render partial: 'entities/interested', collection: @entities, as: :entity %><br>
 
     <%= link_to 'Ver todas as empresas', entities_path %>
   </div>
 
-  <div class="col-xs-4 col-xs-offset-2">
+  <div class="col-xs-5 col-xs-offset-1">
     <h3>Notícias</h3>
+
+    <%= render @news %><br>
+
+    <%= link_to 'Ver todas as notícias', news_index_path %>
 
     <h3>Últimos Candidatos</h3>
 

@@ -25,13 +25,21 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [140, 140]
+  # process resize_to_fill: [140, 140]
   #
   # def scale(width, height)
   #   # do something
   # end
 
   # Create different versions of your uploaded files:
+  version :news do
+    process resize_to_fill: [420, 280]
+  end
+
+  version :medium do
+    process resize_to_fill: [140, 140]
+  end
+
   version :thumb do
     process :resize_to_fit => [100, 100]
   end

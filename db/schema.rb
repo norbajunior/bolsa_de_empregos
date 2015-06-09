@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607160334) do
+ActiveRecord::Schema.define(version: 20150608165658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 20150607160334) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "news", force: true do |t|
+    t.string   "title"
+    t.date     "date"
+    t.text     "summary"
+    t.text     "text"
+    t.string   "image"
+    t.boolean  "featured"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "news", ["user_id"], name: "index_news_on_user_id", using: :btree
 
   create_table "offers", force: true do |t|
     t.string   "title"
@@ -66,6 +81,8 @@ ActiveRecord::Schema.define(version: 20150607160334) do
     t.boolean  "backoffice",            default: false
     t.string   "photo"
   end
+
+  add_foreign_key "news", "users", name: "news_user_id_fk"
 
   add_foreign_key "offers", "users", name: "offers_entity_id_fk", column: "entity_id"
 

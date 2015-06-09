@@ -59,10 +59,20 @@
   margin: 20px 0 30px 0;
 }
 
-.candidate, .entity, .offers {
+.candidate, .entity, .offers, .news {
   padding-left: 0px;
 }
 
 .media .links {
   margin-top: 5px;
+}
+
+/* news */
+.news-text {
+  float:left;
+
+  .image {
+    float:right;
+    margin:0px 0px 5px 10px;
+  }
 }

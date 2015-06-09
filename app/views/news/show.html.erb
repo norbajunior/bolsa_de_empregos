@@ -1,0 +1,16 @@
+<h3><%= @news.title %></h3>
+
+<h5><%= l @news.date %></h5>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="news-text">
+      <div class="image">
+        <%= image_tag @news.image_url, class: 'img-thumbnail' %>
+      </div>
+      <%= @news.text.html_safe %>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Ver todas', news_index_path %>

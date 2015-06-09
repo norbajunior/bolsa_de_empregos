@@ -12,6 +12,9 @@ pt:
       offer:
         create: "Ok"
         update: "Ok"
+      news:
+        create: "Ok"
+        update: "Ok"
   simple_form:
     error_notification:
       default_message: "Por favor reveja os problemas abaixo:"
