@@ -7,7 +7,10 @@
     <div class="text-center">
       <p><%= link_to 'Curriculum Vitae', @candidate.cv_url, target: :_blank, class: 'btn btn-link btn-sm' %></p>
       <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
-      <p><%= link_to 'Editar', [:edit, @candidate], class: 'btn btn-primary btn-sm' %></p>
+
+      <% if can? :update, @candidate %>
+        <p><%= link_to 'Editar', [:edit, @candidate], class: 'btn btn-primary btn-sm' %></p>
+      <% end %>
     </div>
   </div>
 

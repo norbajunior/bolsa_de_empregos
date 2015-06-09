@@ -7,25 +7,7 @@ class ApplicationController < ActionController::Base
 
   respond_to :html, :json
 
-  def authenticate_user!
-    return if backoffice?
-
-    unless logged_in? && current_user.id == params[:id].to_i
-      redirect_to login_path, alert: 'Por favor faça o login.'
-    end
-  end
-
-  def authenticate_entity!
-    return if backoffice?
-
-    unless logged_in? && current_user.entity?
-      redirect_to login_path, alert: 'Por favor faça o login como uma entidade.'
-    end
-  end
-
-  protected
-
-  def not_found
-    raise ActionController::RoutingError.new('Not Found')
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url
   end
 end

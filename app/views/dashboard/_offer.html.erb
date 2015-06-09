@@ -16,9 +16,11 @@
   </div>
 
   <% if display_links %>
-    <div class="media-right">
-      <%= link_to 'Editar', [:edit, offer], class: 'btn btn-primary media-object' %>
-    </div>
+    <% if can? :update, offer %>
+      <div class="media-right">
+        <%= link_to 'Editar', [:edit, offer], class: 'btn btn-primary media-object' %>
+      </div>
+    <% end %>
 
     <div class="media-right">
       <%= link_to 'Cancelar', '', class: 'btn btn-warning media-object' %>

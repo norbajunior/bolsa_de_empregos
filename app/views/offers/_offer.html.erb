@@ -18,7 +18,10 @@
   <% if display_links %>
     <div class="links">
       <%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %>
-      <%= link_to 'Editar', [:edit, offer], class: 'btn btn-primary btn-sm' %>
+
+      <% if can? :update, offer %>
+        <%= link_to 'Editar', [:edit, offer], class: 'btn btn-primary btn-sm' %>
+      <% end %>
     </div>
   <% end %>
 </div>

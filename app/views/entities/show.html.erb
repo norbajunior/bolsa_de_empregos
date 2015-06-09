@@ -6,7 +6,10 @@
 
     <div class="text-center">
       <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
-      <p><%= link_to 'Editar', [:edit, @entity], class: 'btn btn-primary btn-sm' %></p>
+
+      <% if can? :update, @entity %>
+        <p><%= link_to 'Editar', [:edit, @entity], class: 'btn btn-primary btn-sm' %></p>
+      <% end %>
     </div>
   </div>
 

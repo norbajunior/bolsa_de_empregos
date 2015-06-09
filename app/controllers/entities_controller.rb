@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
-  before_action :authenticate_user!, only: [:dashboard, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   before_action :set_entity, only: [:dashboard, :edit, :show, :update]
 
   def index

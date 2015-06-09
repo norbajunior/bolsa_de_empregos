@@ -6,7 +6,10 @@
 
     <div class="text-center">
       <p><%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %></p>
-      <p><%= link_to 'Editar', [:edit, @offer], class: 'btn btn-primary btn-sm' %></p>
+
+      <% if can? :update, @offer %>
+        <p><%= link_to 'Editar', [:edit, @offer], class: 'btn btn-primary btn-sm' %></p>
+      <% end %>
     </div>
   </div>
 
@@ -32,7 +35,7 @@
 </div>
 
 <div class="media col-md-6 offers">
-  <% if current_user.entity? %>
+  <% if current_user.try(:entity?) %>
     <h3>Candidatos</h3>
 
     <%#= render @offer.candidates %>

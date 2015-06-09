@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_user!, only: [:dashboard, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   before_action :set_candidate, only: [:dashboard, :edit, :show, :update]
 

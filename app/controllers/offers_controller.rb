@@ -1,6 +1,5 @@
 class OffersController < ApplicationController
-  before_action :authenticate_entity!, only: [:new, :create, :edit, :udate, :destroy]
-  before_action :authenticate_offers_entity!, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @offers = Search.by(Offer.all, filter_params)

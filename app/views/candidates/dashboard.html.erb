@@ -24,7 +24,10 @@
   <div class="col-xs-4 col-xs-offset-2 links">
     <h3>Candidato</h3>
 
-    <%= link_to 'Editar Dados', [:edit, @candidate], class: 'btn btn-primary' %>
+    <% if can? :update, @candidate %>
+      <%= link_to 'Editar Dados', [:edit, @candidate], class: 'btn btn-primary' %>
+    <% end %>
+
     <%= link_to 'Alterar Password', '', class: 'btn btn-warning' %>
   </div>
 </div>

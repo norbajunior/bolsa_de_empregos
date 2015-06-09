@@ -7,10 +7,6 @@ module SessionsHelper
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def backoffice?
-    current_user.backoffice?
-  end
-
   def logged_in?
     current_user.present?
   end
