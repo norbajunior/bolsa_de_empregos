@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
 
-      redirect_to [:dashboard, user], notice: 'Logado com sucesso'
+      redirect_to [:dashboard, user], notice: 'Login realizado com sucesso'
     else
       flash.now[:alert] = 'Email/password inválidos'
 
