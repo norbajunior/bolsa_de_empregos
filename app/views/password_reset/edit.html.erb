@@ -1,0 +1,15 @@
+<h3>Alterar Password</h3>
+
+<h5><strong>Nome</strong></h5>
+
+<p><%= current_user.name %></p><br>
+
+<%= simple_form_for current_user, url: password_reset_path do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :current_password %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit, class: 'btn btn-success' %>
+  <%= link_to 'Cancelar', [:dashboard, current_user], class: 'btn btn-default' %>
+<% end %>

@@ -18,6 +18,7 @@ class Ability
       can [:dashboard, :update], Candidate, id: user.id
 
       can :manage, Interest, interested_id: user.id
+      can :manage, :password_reset
     elsif user.entity?
       cannot :new, User
       cannot :create, Entity
@@ -26,9 +27,11 @@ class Ability
       can [:dashboard, :update], Entity, id: user.id
       can :manage, Interest, interested_id: user.id
       can :manage, Offer,    entity_id: user.id
+      can :manage, :password_reset
     else
       can :create, [Candidate, Entity]
       can :new, User
+      cannot :manage, :password_reset
     end
   end
 end

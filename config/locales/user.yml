@@ -1,6 +1,7 @@
 pt:
   attributes: &shared_attributes
     name: Nome
+    current_password: Password Atual
     password_confirmation: Confirmação da Password
     address: Morada
     zipcode: Código Postal

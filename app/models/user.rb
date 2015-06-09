@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessor :current_password
+
   has_secure_password
 
   mount_uploader :photo, PhotoUploader
@@ -11,6 +13,7 @@ class User < ActiveRecord::Base
   scope :by_name, ->(name) { where('name LIKE ?', "%#{name}%") }
   scope :place, ->(place) { where(place: place) }
 
+  validates :password, confirmation: true, on: :update
   def entity?
     type == 'Entity'
   end
