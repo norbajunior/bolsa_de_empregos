@@ -63,7 +63,7 @@ $padding-left-lists: 0px;
 
 .candidate, .entity, .offers {
   padding-left: $padding-left-lists;
-  min-height: 160px !important;
+  //min-height: 160px !important;
 }
 
 .media .links {
@@ -86,7 +86,7 @@ $padding-left-lists: 0px;
 }
 
 .media {
-  min-height: 120px;
+  //min-height: 120px;
   max-height: 160px;
 }
 
