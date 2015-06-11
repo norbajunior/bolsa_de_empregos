@@ -5,16 +5,16 @@
 
   <div class="media-body">
     <h5 class="media-heading"><%= link_to candidate.name, candidate %></h5>
-    <p>
-      <%= candidate.professional_area_humanize %><br>
-      <%= candidate.scholarity_humanize %><br>
-    </p>
+    <h5>
+      <%= candidate.professional_area_humanize %>
+    </h5>
+    <%= truncate_html candidate.presentation.html_safe %><br>
   </div>
 
   <% if display_links %>
     <div class="links">
-      <%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %>
-      <% if can? :update, Candidate %>
+      <%= link_to 'Interessado/a', '#', class: 'btn btn-success btn-sm', data: { 'interested' => true, 'user-id' => candidate.id } %>
+      <% if can? :update, candidate %>
         <%= link_to 'Editar', [:edit, candidate], class: 'btn btn-primary btn-sm' %>
       <% end %>
     </div>

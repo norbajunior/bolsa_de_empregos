@@ -12,7 +12,7 @@
 
     <h5><strong><%= offer.entity_name %></strong></h5>
 
-    <%= offer.description.truncate(200) %>
+    <%= truncate_html offer.description.html_safe %>
   </div>
 
   <% if display_links %>

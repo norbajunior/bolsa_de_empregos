@@ -10,7 +10,7 @@
       <%#= entity.offers.size %>
     </h4>
 
-    <%= entity.presentation.truncate(200).html_safe %>
+    <%= truncate_html entity.presentation.html_safe %>
   </div>
 
   <% if display_links %>
