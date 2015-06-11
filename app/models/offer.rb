@@ -19,7 +19,7 @@ class Offer < ActiveRecord::Base
 
   delegate :name, to: :entity, prefix: true
 
-  scope :title, ->(title) { where('title LIKE ?', "%#{title}%") }
+  scope :title, ->(title) { where('title ILIKE ?', "%#{title}%") }
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 

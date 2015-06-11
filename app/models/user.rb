@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :interests, foreign_key: :interested_id
   has_many :interested, class_name: 'Interest', foreign_key: :user_id
 
-  scope :by_name, ->(name) { where('name LIKE ?', "%#{name}%") }
+  scope :by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
   scope :place, ->(place) { where(place: place) }
 
   validates :password, confirmation: true, on: :update
