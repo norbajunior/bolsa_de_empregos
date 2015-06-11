@@ -20,3 +20,5 @@
 <% end %>
 
 <%= render partial: 'candidate', collection: @candidates, locals: { display_links: true } %>
+
+<%= paginate @candidates %>

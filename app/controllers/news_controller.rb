@@ -3,7 +3,7 @@ class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
   def index
-    @news = News.all
+    @news = News.all.page(params[:page])
   end
 
   def show

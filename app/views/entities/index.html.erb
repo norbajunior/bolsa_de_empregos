@@ -19,3 +19,5 @@
 <% end %>
 
 <%= render partial: 'entity', collection: @entities, locals: { display_links: true } %>
+
+<%= paginate @entities %>

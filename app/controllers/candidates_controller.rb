@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:dashboard, :edit, :show, :update]
 
   def index
-    @candidates = Search.by(Candidate.all, filter_params)
+    @candidates = Search.by(Candidate.all, filter_params).page(params[:page])
   end
 
   def dashboard

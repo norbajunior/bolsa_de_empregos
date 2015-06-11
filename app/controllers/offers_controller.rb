@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @offers = Search.by(Offer.all, filter_params)
+    @offers = Search.by(Offer.active, filter_params).page(params[:page])
   end
 
   def show

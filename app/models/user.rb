@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include DefaultScope
+
   attr_accessor :current_password
 
   has_secure_password

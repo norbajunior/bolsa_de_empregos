@@ -19,3 +19,5 @@
 <% end %>
 
 <%= render partial: 'offer', collection: @offers, locals: { display_links: true } %>
+
+<%= paginate @offers %>

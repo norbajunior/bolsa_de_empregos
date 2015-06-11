@@ -1,4 +1,6 @@
 class News < ActiveRecord::Base
+  include DefaultScope
+
   belongs_to :user # backoffice
 
   mount_uploader :image, PhotoUploader

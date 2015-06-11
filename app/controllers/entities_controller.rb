@@ -4,7 +4,7 @@ class EntitiesController < ApplicationController
   before_action :set_entity, only: [:dashboard, :edit, :show, :update]
 
   def index
-    @entities = Search.by(Entity.all, filter_params)
+    @entities = Search.by(Entity.all, filter_params).page(params[:page])
   end
 
   def dashboard

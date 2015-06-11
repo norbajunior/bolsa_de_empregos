@@ -1,4 +1,6 @@
 class Offer < ActiveRecord::Base
+  include DefaultScope
+
   has_enumeration_for :professional_activity
   has_enumeration_for :salary
   has_enumeration_for :contract
