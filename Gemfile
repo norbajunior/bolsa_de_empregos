@@ -14,6 +14,7 @@ gem 'mini_magick', '4.2.7'
 gem 'foreigner', '1.7.3'
 gem 'cancancan', '~> 1.10'
 gem 'kaminari', '0.15.1'
+gem 'faker'
 gem 'truncate_html'
 
 # Use SCSS for stylesheets
