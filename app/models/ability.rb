@@ -13,7 +13,8 @@ class Ability
     elsif user.candidate?
       cannot :new, User
       cannot :create, Candidate
-      cannot [:read, :create, :destroy], Interest, user_id: user.id
+      cannot :manage, Interest, user_id: user.id
+      cannot :read, :candidate_interest_buttons
 
       can [:dashboard, :update], Candidate, id: user.id
 
@@ -23,6 +24,8 @@ class Ability
       cannot :new, User
       cannot :create, Entity
       cannot [:create, :destroy], Interest, user_id: user.id
+      cannot :read, :entity_interest_buttons
+      cannot :read, :application_buttons
 
       can [:dashboard, :update], Entity, id: user.id
       can :manage, Interest, interested_id: user.id
@@ -32,6 +35,8 @@ class Ability
       can :create, [Candidate, Entity]
       can :new, User
       cannot :manage, :password_reset
+      cannot :read, :entity_interest_buttons
+      cannot :read, :candidate_interest_buttons
     end
   end
 end

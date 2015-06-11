@@ -1,0 +1,7 @@
+<% interest = current_user.try(:already_interested_in, user_id) %>
+
+<% if interest.nil? %>
+  <%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm', data: { 'interested' => false, 'user-id' => user_id } %>
+<% else %>
+  <%= link_to 'Remover Interesse', '', class: 'btn btn-warning btn-sm', data: { 'interested' => interest.id } %>
+<% end %>

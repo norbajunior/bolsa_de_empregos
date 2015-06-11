@@ -4,7 +4,9 @@
   <%= link_to image_tag(@entity.photo_url(:medium), class: 'media-object img-rounded'), @entity %>
 
   <div class="text-center">
-    <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
+    <% if can? :read, :entity_interest_buttons %>
+      <%= render 'interest_buttons', user_id: @entity.id %>
+    <% end %>
 
     <% if can? :update, @entity %>
       <p><%= link_to 'Editar', [:edit, @entity], class: 'btn btn-primary btn-sm' %></p>

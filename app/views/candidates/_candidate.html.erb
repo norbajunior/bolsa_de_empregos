@@ -13,7 +13,10 @@
 
   <% if display_links %>
     <div class="links">
-      <%= link_to 'Interessado/a', '#', class: 'btn btn-success btn-sm', data: { 'interested' => true, 'user-id' => candidate.id } %>
+      <% if can? :read, :candidate_interest_buttons %>
+        <%= render 'interest_buttons', user_id: candidate.id %>
+      <% end %>
+
       <% if can? :update, candidate %>
         <%= link_to 'Editar', [:edit, candidate], class: 'btn btn-primary btn-sm' %>
       <% end %>

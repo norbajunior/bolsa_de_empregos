@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
   def candidate?
     type == 'Candidate'
   end
+
+  def already_interested_in(user_id)
+    interests.where(user_id: user_id).first
+  end
 end
