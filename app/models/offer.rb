@@ -25,9 +25,7 @@ class Offer < ActiveRecord::Base
 
   scope :similar_offers, ->(offer) do
     where(professional_activity: offer.professional_activity).
-    where.not(id: offer.id).
-    limit(4).
-    order('RANDOM()')
+    where.not(id: offer.id)
   end
 
   scope :place, ->(place) do
