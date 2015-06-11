@@ -1,8 +1,6 @@
-<div class="media">
+<div class="media" id="<%= dom_id(offer) %>">
   <div class="media-left">
-    <a href="#">
-      <%= link_to image_tag(offer.photo_url(:thumb), class: 'media-object img-rounded'), offer %>
-    </a>
+    <%= link_to image_tag(offer.photo_url(:thumb), class: 'media-object img-rounded'), offer %>
   </div>
 
   <div class="media-body">
@@ -15,6 +13,6 @@
   </div>
 
   <div class="media-right">
-    <%= link_to 'Reativar', '', class: 'btn btn-success media-object' %>
+    <%= link_to 'Reativar', '', class: 'btn btn-success media-object', data: { active: false, 'offer-id' => offer.id } %>
   </div>
 </div>

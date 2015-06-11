@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media" id="<%= dom_id(offer) %>">
   <div class="media-left">
     <div class="media-left">
       <%= link_to image_tag(offer.photo_url(:thumb), class: 'media-object img-rounded'), offer %>
@@ -23,7 +23,7 @@
     <% end %>
 
     <div class="media-right">
-      <%= link_to 'Cancelar', '', class: 'btn btn-warning media-object' %>
+      <%= link_to 'Cancelar', '', class: 'btn btn-warning media-object', data: { active: true, 'offer-id' => offer.id } %>
     </div>
   <% end %>
 </div>

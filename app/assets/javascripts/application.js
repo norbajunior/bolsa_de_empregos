@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-filestyle
+//= require handlebars
 //= require_tree .
 $(function() {
   $('a[data-interested]').click(function (e) {

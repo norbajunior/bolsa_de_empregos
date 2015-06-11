@@ -1,14 +1,18 @@
-<div class="row">
+<div class="row" id="entity-dashboard">
   <div class="col-xs-6">
     <h3>Ofertas</h3>
 
-    <%= render partial: 'dashboard/offer', collection: @active_offers, locals: { display_links: true } %>
+    <div id="active-offers">
+      <%= render partial: 'dashboard/offer', collection: @active_offers, locals: { display_links: true } %>
+    </div>
 
     <%= link_to 'Inserir Oferta', new_offer_path, class: 'btn btn-success btn-insert' %>
 
     <h3>Histórico</h3>
 
-    <%= render partial: 'offers_history', collection: @inactive_offers, as: :offer %>
+    <div id="inactive-offers">
+      <%= render partial: 'offers_history', collection: @inactive_offers, as: :offer %>
+    </div>
   </div>
 
   <div class="col-xs-4 col-xs-offset-2 links">
@@ -24,3 +28,37 @@
     <%= render partial: 'candidates/interested', collection: @entity.interested_candidates, as: :candidate %>
   </div>
 </div>
+
+<script id="offer-template" type="text/x-handeblars-template">
+  <div class="media" id="offer_{{offer.id}}">
+    <div class="media-left">
+      <div class="media-left">
+        <a href="{{offer.url}}"><img alt="Thumb 0{{offer.id}}" class="media-object img-rounded" src="{{offer.photo_url}}"></a>
+      </div>
+    </div>
+    <div class="media-body">
+      <h5 class="media-heading">
+        <a href="{{offer.url}}">{{offer.title}}</a><br>
+        {{offer.start_at}} a {{offer.end_at}}<br>
+      </h5>
+
+      <h5><strong>{{offer.entity_name}}</strong></h5>
+
+      {{offer.description}}
+    </div>
+
+    {{#if offer.active}}
+      <div class="media-right">
+        <a class="btn btn-primary media-object" href="{{offer.edit_url}}">Editar</a>
+      </div>
+
+      <div class="media-right">
+        <a class="btn btn-warning media-object" data-active="true" data-offer-id="{{offer.id}}" href>Cancelar</a>
+      </div>
+    {{else}}
+      <div class="media-right">
+        <a class="btn btn-success media-object" data-active="false" data-offer-id="{{offer.id}}" href>Reativar</a>
+      </div>
+    {{/if}}
+  </div>
+</script>
