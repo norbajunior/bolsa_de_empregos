@@ -1,8 +1,6 @@
-<div class="media <%= 'col-md-6' if controller_name == 'news'%> news">
+<div class="media <%= 'col-md-6 ' if controller_name == 'news' %>news">
   <div class="media-left">
-    <div class="media-left">
-      <%= link_to image_tag(news.image_url(:thumb), class: 'media-object img-rounded'), news %>
-    </div>
+    <%= link_to image_tag(news.image_url(:thumb), class: 'media-object img-rounded'), news %>
   </div>
   <div class="media-body">
     <h5 class="media-heading">

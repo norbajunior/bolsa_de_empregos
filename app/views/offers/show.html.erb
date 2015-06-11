@@ -1,47 +1,43 @@
 <h3><%= @offer.title %></h3>
 
-<div class="media">
-  <div class="media-left">
-    <%= link_to image_tag(@offer.photo_url(:medium), class: 'media-object img-rounded'), @offer %><br>
+<div class="media-left">
+  <%= link_to image_tag(@offer.photo_url(:medium), class: 'media-object img-rounded'), @offer %><br>
 
-    <div class="text-center">
-      <p><%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %></p>
+  <div class="text-center">
+    <p><%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %></p>
 
-      <% if can? :update, @offer %>
-        <p><%= link_to 'Editar', [:edit, @offer], class: 'btn btn-primary btn-sm' %></p>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="media-body">
-    <div class="col-xs-10">
-      <%= @offer.description %>
-
-      <h5><strong><%= l @offer.start_at %> a <%= l @offer.end_at %></strong></h5><br>
-
-      <h5><strong>Empresa</strong></h5>
-      <p><%= link_to @offer.entity_name, @offer.entity %></p><br>
-
-      <h5><strong>Atividade Profissional</strong></h5>
-      <p><%= @offer.professional_activity_humanize %></p><br>
-
-      <h5><strong>Tipo de Contrato</strong></h5>
-      <%= @offer.contract_humanize %><br>
-
-      <h5><strong>Salário</strong></h5>
-      <%= @offer.salary_humanize %>
-    </div>
+    <% if can? :update, @offer %>
+      <p><%= link_to 'Editar', [:edit, @offer], class: 'btn btn-primary btn-sm' %></p>
+    <% end %>
   </div>
 </div>
 
-<div class="media col-md-6 offers">
-  <% if current_user.try(:entity?) %>
-    <h3>Candidatos</h3>
+<div class="media-body">
+  <div class="col-xs-12">
+    <%= @offer.description %>
 
-    <%#= render @offer.candidates %>
-  <% else %>
-    <h3>Outras ofertas na mesma área</h3>
+    <h5><strong><%= l @offer.start_at %> a <%= l @offer.end_at %></strong></h5><br>
 
-    <%= render partial: 'offer', collection: @similar_offers, locals: { display_links: false } %>
-  <% end %>
+    <h5><strong>Empresa</strong></h5>
+    <p><%= link_to @offer.entity_name, @offer.entity %></p><br>
+
+    <h5><strong>Atividade Profissional</strong></h5>
+    <p><%= @offer.professional_activity_humanize %></p><br>
+
+    <h5><strong>Tipo de Contrato</strong></h5>
+    <%= @offer.contract_humanize %><br>
+
+    <h5><strong>Salário</strong></h5>
+    <%= @offer.salary_humanize %>
+  </div>
 </div>
+
+<% if current_user.try(:entity?) %>
+  <h3>Candidatos</h3>
+
+  <%#= render @offer.candidates %>
+<% else %>
+  <h3>Outras ofertas na mesma área</h3>
+
+  <%= render partial: 'offer', collection: @similar_offers, locals: { display_links: false } %>
+<% end %>

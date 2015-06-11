@@ -5,12 +5,6 @@
     <%= render partial: 'offer', collection: @offers, locals: { display_links: false } %><br>
 
     <%= link_to 'Ver todas as ofertas', offers_path %>
-
-    <h3>Últimas Empresas</h3>
-
-    <%= render partial: 'entities/interested', collection: @entities, as: :entity %><br>
-
-    <%= link_to 'Ver todas as empresas', entities_path %>
   </div>
 
   <div class="col-xs-5 col-xs-offset-1">
@@ -19,7 +13,19 @@
     <%= render @news %><br>
 
     <%= link_to 'Ver todas as notícias', news_index_path %>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Últimas Empresas</h3>
+
+    <%= render partial: 'entities/interested', collection: @entities, as: :entity %><br>
+
+    <%= link_to 'Ver todas as empresas', entities_path %>
+  </div>
+
+  <div class="col-xs-5 col-xs-offset-1">
     <h3>Últimos Candidatos</h3>
 
     <%= render partial: 'candidates/interested', collection: @candidates, as: :candidate %><br>

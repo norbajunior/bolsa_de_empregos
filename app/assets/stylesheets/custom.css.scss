@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$padding-left-lists: 0px;
+
 .center {
   text-align: center;
 }
@@ -59,8 +61,9 @@
   margin: 20px 0 30px 0;
 }
 
-.candidate, .entity, .offers, .news {
-  padding-left: 0px;
+.candidate, .entity, .offers {
+  padding-left: $padding-left-lists;
+  min-height: 160px !important;
 }
 
 .media .links {
@@ -75,4 +78,18 @@
     float:right;
     margin:0px 0px 5px 10px;
   }
+}
+
+.news {
+  padding-left: $padding-left-lists;
+  min-height: 125px !important;
+}
+
+.media {
+  min-height: 120px;
+  max-height: 160px;
+}
+
+.media-box {
+  max-height: 160px;
 }

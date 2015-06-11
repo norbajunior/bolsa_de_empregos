@@ -1,53 +1,49 @@
 <h3><%= @candidate.name %></h3>
 
-<div class="media">
-  <div class="media-left">
-    <%= link_to image_tag(@candidate.photo_url(:medium), class: 'media-object img-rounded'), @candidate %>
+<div class="media-left">
+  <%= link_to image_tag(@candidate.photo_url(:medium), class: 'media-object img-rounded'), @candidate %>
 
-    <div class="text-center">
-      <p><%= link_to 'Curriculum Vitae', @candidate.cv_url, target: :_blank, class: 'btn btn-link btn-sm' %></p>
-      <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
+  <div class="text-center">
+    <p><%= link_to 'Curriculum Vitae', @candidate.cv_url, target: :_blank, class: 'btn btn-link btn-sm' %></p>
+    <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
 
-      <% if can? :update, @candidate %>
-        <p><%= link_to 'Editar', [:edit, @candidate], class: 'btn btn-primary btn-sm' %></p>
-      <% end %>
-    </div>
+    <% if can? :update, @candidate %>
+      <p><%= link_to 'Editar', [:edit, @candidate], class: 'btn btn-primary btn-sm' %></p>
+    <% end %>
   </div>
+</div>
 
-  <div class="media-body">
-    <div class="col-xs-10">
-      <%= @candidate.presentation.html_safe %>
-    </div>
+<div class="media-body">
+  <div class="col-xs-12">
+    <%= @candidate.presentation.html_safe %>
 
-    <div class="col-xs-10">
-      <h3>Dados Profissionais</h3>
+    <h3>Dados Profissionais</h3>
 
-      <h5><strong>Situação Profissional</strong></h5>
-      <p><%= @candidate.employment_status_humanize %></p><br>
+    <h5><strong>Situação Profissional</strong></h5>
+    <p><%= @candidate.employment_status_humanize %></p><br>
 
-      <h5><strong>Nível Habilitações</strong></h5>
-      <p><%= @candidate.scholarity_humanize %></p><br>
+    <h5><strong>Nível Habilitações</strong></h5>
+    <p><%= @candidate.scholarity_humanize %></p><br>
 
-      <h5><strong>Habilitações Literárias</strong></h5>
-      <%= @candidate.education.html_safe %><br>
+    <h5><strong>Habilitações Literárias</strong></h5>
+    <%= @candidate.education.html_safe %><br>
 
-      <h5><strong>Experiência Profissional</strong></h5>
-      <%= @candidate.experience.html_safe %>
+    <h5><strong>Experiência Profissional</strong></h5>
+    <%= @candidate.experience.html_safe %>
 
-      <h3>Dados Pessoais</h3>
+    <h3>Dados Pessoais</h3>
 
-      <address>
-        <h5><strong>Morada</strong></h5>
+    <address>
+      <h5><strong>Morada</strong></h5>
 
-        <%= @candidate.address %><br>
-        <%= @candidate.zipcode %> <%= @candidate.place_humanize %><br>
+      <%= @candidate.address %><br>
+      <%= @candidate.zipcode %> <%= @candidate.place_humanize %><br>
 
-        <h5><strong>Contactos</strong></h5>
+      <h5><strong>Contactos</strong></h5>
 
-        Telefone: <%= @candidate.contact %> / <%= @candidate.other_contact %><br>
-        <%= @candidate.email %><br><br>
-      </address>
-    </div>
+      Telefone: <%= @candidate.contact %> / <%= @candidate.other_contact %><br>
+      <%= @candidate.email %><br><br>
+    </address>
   </div>
 </div>
 

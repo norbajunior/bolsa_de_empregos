@@ -1,49 +1,41 @@
 <h2><%= @entity.name %></h2>
 
-<div class="media">
-  <div class="media-left">
-    <%= link_to image_tag(@entity.photo_url(:medium), class: 'media-object img-rounded'), @entity %>
+<div class="media-left">
+  <%= link_to image_tag(@entity.photo_url(:medium), class: 'media-object img-rounded'), @entity %>
 
-    <div class="text-center">
-      <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
+  <div class="text-center">
+    <p><%= link_to 'Interessado/a', '', class: 'btn btn-success btn-sm' %></p>
 
-      <% if can? :update, @entity %>
-        <p><%= link_to 'Editar', [:edit, @entity], class: 'btn btn-primary btn-sm' %></p>
-      <% end %>
-    </div>
+    <% if can? :update, @entity %>
+      <p><%= link_to 'Editar', [:edit, @entity], class: 'btn btn-primary btn-sm' %></p>
+    <% end %>
   </div>
+</div>
 
-  <div class="media-body">
-    <div class="col-xs-10">
-      <p><%= @entity.presentation.html_safe %></p>
-    </div>
+<div class="media-body">
+  <div class="col-xs-12">
+    <p><%= @entity.presentation.html_safe %></p>
 
-    <div class="col-xs-10">
-      <h4>Actividade Profissional</h4>
+    <h4>Actividade Profissional</h4>
 
-      <p><%= @entity.professional_activity_humanize %></p>
-    </div>
+    <p><%= @entity.professional_activity_humanize %></p>
 
-    <div class="col-xs-10">
-      <h4>Morada</h4>
+    <h4>Morada</h4>
 
-      <address>
-        <%= @entity.address %><br>
-        <%= @entity.zipcode %><br>
-        <%= @entity.place_humanize %>
-      </address>
-    </div>
+    <address>
+      <%= @entity.address %><br>
+      <%= @entity.zipcode %><br>
+      <%= @entity.place_humanize %>
+    </address>
 
-    <div class="col-xs-10">
-      <h4>Contactos</h4>
+    <h4>Contactos</h4>
 
-      <p>
-        <%= @entity.contact %><br>
-        <%= @entity.other_contact %><br>
-        <%= @entity.email %><br><br>
-        <%= link_to @entity.site, @entity.site %>
-      </p>
-    </div>
+    <p>
+      <%= @entity.contact %><br>
+      <%= @entity.other_contact %><br>
+      <%= @entity.email %><br><br>
+      <%= link_to @entity.site, @entity.site %>
+    </p>
   </div>
 </div>
 
