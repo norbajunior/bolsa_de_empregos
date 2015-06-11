@@ -29,7 +29,7 @@ class Offer < ActiveRecord::Base
   end
 
   scope :place, ->(place) do
-    joins(:entity).where entities: { place: place }
+    joins(:entity).where(users: { place: place })
   end
 
   %i[professional_activity salary contract].each do |name|
