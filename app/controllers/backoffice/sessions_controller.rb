@@ -22,6 +22,6 @@ class Backoffice::SessionsController < Backoffice::BaseController
   def destroy
     log_out if logged_in?
 
-    redirect_to backoffice_root_path
+    redirect_to root_path
   end
 end
