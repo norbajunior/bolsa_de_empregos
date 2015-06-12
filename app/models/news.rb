@@ -8,4 +8,5 @@ class News < ActiveRecord::Base
   validates :title, :date, :summary, :text, :image, presence: true
 
   scope :title, ->(title) { where('title ILIKE ?', "%#{title}%") }
+  scope :active, -> { where(active: true) }
 end
