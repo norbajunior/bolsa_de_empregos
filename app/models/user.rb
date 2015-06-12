@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     type == 'Candidate'
   end
 
+  def backoffice?
+    type == 'Backoffice'
+  end
+
   def already_interested_in(user_id)
     interests.find_by user_id: user_id
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612083531) do
+ActiveRecord::Schema.define(version: 20150612163007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20150612083531) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name",                                  null: false
-    t.string   "email",                                 null: false
-    t.string   "password_digest",                       null: false
+    t.string   "name",                                 null: false
+    t.string   "email",                                null: false
+    t.string   "password_digest",                      null: false
     t.text     "address"
     t.string   "zipcode"
     t.string   "place"
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 20150612083531) do
     t.string   "employment_status"
     t.text     "experience"
     t.string   "type"
-    t.boolean  "backoffice",            default: false
     t.string   "photo"
+    t.boolean  "active",                default: true
   end
 
   add_foreign_key "applications", "offers", name: "applications_offer_id_fk"

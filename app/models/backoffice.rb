@@ -1,0 +1,2 @@
+class Backoffice < User
+end

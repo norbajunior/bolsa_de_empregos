@@ -6,7 +6,7 @@ class Backoffice::SessionsController < Backoffice::BaseController
   def new ; end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase, backoffice: true)
+    user = Backoffice.find_by(email: params[:session][:email].downcase)
 
     if user && user.authenticate(params[:session][:password])
       log_in user
