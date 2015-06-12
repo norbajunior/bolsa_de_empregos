@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_candidate
-    return unless current_user.candidate?
-    
+    return unless current_user.try(:candidate?)
+
     current_user
   end
 end
