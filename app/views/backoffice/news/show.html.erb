@@ -1,0 +1,66 @@
+<h3>Detalhe da Notícia</h3>
+
+<div class="row">
+  <div class="col-xs-8">
+    <h5>
+      <strong>Título</strong><br><br>
+
+      <%= @news.title %>
+    </h5>
+  </div>
+
+  <div class="col-xs-2">
+    <h5>
+      <strong>Data</strong><br><br>
+
+      <%= l @news.date %>
+    </h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h5><strong>Sumário</strong></h5>
+
+    <p><%= @news.summary %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h5><strong>Texto</strong></h5>
+
+    <%= @news.text.html_safe %>
+  </div>
+</div><br>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h5><strong>Imagem</strong></h5>
+
+    <p><%= image_tag @news.image_url(:medium), class: 'img-rounded' %></p>
+  </div>
+</div><br>
+
+<div class="row">
+  <div class="col-xs-4">
+    <h5><strong>Destaque</strong></h5>
+
+    <p><%= t @news.featured %></p>
+  </div>
+
+  <div class="col-xs-4">
+    <h5><strong>Activa</strong></h5>
+
+    <p><%= t @news.active %></p>
+  </div>
+</div><br>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to 'Editar', [:edit, :backoffice, @news], class: 'btn btn-primary' %>
+    <%= link_to 'Apagar', [:backoffice, @news], class: 'btn btn-danger', method: :delete, confirm: 'Tens certeza?' %>
+    <%= link_to 'Inserir', new_backoffice_news_path, class: 'btn btn-success' %>
+    <%= link_to 'Listagem', backoffice_news_index_path, class: 'btn btn-default' %>
+  </div>
+</div>

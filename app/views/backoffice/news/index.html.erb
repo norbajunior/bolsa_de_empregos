@@ -1,0 +1,45 @@
+<h3>Notícias</h3>
+
+<%= simple_form_for :filter, url: backoffice_news_index_path, method: :get, html: { class: 'form-inline' },
+    defaults: { input_html: { class: 'form-control' },
+    wrapper_html: { class: 'form-group' },
+    label_html: { class: 'sr-only' } } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: 'sr-only' %>
+
+    <div class="input-group">
+      <%= render 'button_search' %>
+
+      <%= f.input_field :title, placeholder: 'Pesquisar' %>
+    </div>
+  </div>
+<% end %><br>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <th>Notícia</th>
+    <th>Data</th>
+    <th>Destaque</th>
+    <th>Activa</th>
+    <th colspan="3">Ações</th>
+  </thead>
+  <tbody>
+    <% @news.each do |news| %>
+      <tr id="<%= dom_id(news) %>">
+        <td><%= truncate news.title, length: 80 %></td>
+        <td><%= l news.date %></td>
+        <td><%= t news.featured %></td>
+        <td><%= t news.active %></td>
+        <td colspan="3">
+          <%= link_to 'Detalhe', [:backoffice, news], class: 'btn btn-default' %>
+          <%= link_to 'Editar', [:edit, :backoffice, news], class: 'btn btn-primary' %>
+          <%= link_to 'Apagar', [:backoffice, news], class: 'btn btn-danger', data: { method: :delete, remote: true } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'paginate', collection: @news %>
+
+<%= link_to 'Inserir', new_backoffice_news_path, class: 'btn btn-success' %>

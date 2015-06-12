@@ -17,7 +17,7 @@ BolsaDeEmpregos::Application.routes.draw do
 
   resources :candidates
   resources :entities
-  resources :news
+  resources :news, only: [:index, :show]
   resources :offers
   resources :interests, only: [:create, :destroy]
   resources :applications, only: [:create, :destroy]
@@ -26,5 +26,6 @@ BolsaDeEmpregos::Application.routes.draw do
     root 'dashboard#index'
 
     concerns :accessable
+    resources :news
   end
 end
