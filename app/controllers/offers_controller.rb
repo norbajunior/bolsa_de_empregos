@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @offers = Search.by(Offer.active, filter_params).page(params[:page])
+    @offers = Search.by(Offer.active.includes(:entity), filter_params).page(params[:page])
     @current_candidate_applications = current_candidate.try(:applications)
   end
 
