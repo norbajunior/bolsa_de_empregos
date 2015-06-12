@@ -9,7 +9,10 @@ class Ability
 
     if user.backoffice?
       can :manage, :all
-      cannot :manage, [Interest] # [Interest, Applies]
+      cannot :manage, [Interest, Application] # [Interest, Applies]
+      cannot :read, :entity_interest_buttons
+      cannot :read, :candidate_interest_buttons
+      cannot :read, :application_button
     elsif user.candidate?
       cannot :new, User
       cannot :create, Candidate
