@@ -21,13 +21,17 @@ class CandidatesController < ApplicationController
   def create
     @candidate = Candidate.new(candidate_params)
 
-    log_in @candidate if @candidate.save
+    if @candidate.save
+      log_in @candidate ; flash[:notice] = 'Candidato criado com sucesso'
+    end
 
     respond_with @candidate
   end
 
   def update
-    @candidate.update_attributes(candidate_params.except(:password, :password_confirmation))
+    if @candidate.update_attributes(candidate_params.except(:password, :password_confirmation))
+      flash[:notice] = 'Candidato atualizado com sucesso'
+    end
 
     respond_with @candidate
   end

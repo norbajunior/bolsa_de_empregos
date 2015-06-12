@@ -25,13 +25,17 @@ class EntitiesController < ApplicationController
   def create
     @entity = Entity.new(entity_params)
 
-    log_in @entity if @entity.save
+    if @entity.save
+      log_in @entity ; flash[:notice] = 'Entidade criado com sucesso'
+    end
 
     respond_with @entity
   end
 
   def update
-    @entity.update_attributes(entity_params.except!(:password, :password_confirmation))
+    if @entity.update_attributes(entity_params.except!(:password, :password_confirmation))
+      flash[:notice] = 'Entidade criado com sucesso'
+    end
 
     respond_with @entity
   end

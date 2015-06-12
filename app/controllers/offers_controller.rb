@@ -20,15 +20,15 @@ class OffersController < ApplicationController
   def create
     @offer = current_user.offers.new(offer_params)
 
-    @offer.save
+    flash[:notice] = 'Oferta criada com sucesso' if @offer.save
 
-    respond_with @offer, notice: I18n.t('flash.notice', model: I18n.t('activemodel.models.offer'))
+    respond_with @offer
   end
 
   def update
-    @offer.update(offer_params)
+    flash[:notice] = 'Oferta atualizada com sucesso' if @offer.update(offer_params)
 
-    respond_with @offer, notice: I18n.t('flash.update_notice', model: I18n.t('activemodel.models.offer'))
+    respond_with @offer
   end
 
   def destroy

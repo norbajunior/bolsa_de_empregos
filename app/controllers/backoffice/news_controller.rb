@@ -18,15 +18,15 @@ class Backoffice::NewsController < Backoffice::BaseController
   def create
     @news = News.new(news_params)
 
-    @news.save
+    flash[:notice] = 'Notícia criada com sucesso' if @news.save
 
-    redirect_to [:backoffice, @news], notice: I18n.t('flash.notice', model: I18n.t('activerecord.models.news'))
+    respond_with [:backoffice, @news]
   end
 
   def update
-    @news.update(news_params)
+    flash[:notice] = 'Notícia atualizada com sucesso' if @news.update(news_params)
 
-    redirect_to [:backoffice, @news], notice: I18n.t('flash.notice_update', model: I18n.t('activerecord.models.news'))
+    respond_with [:backoffice, @news]
   end
 
   def destroy
