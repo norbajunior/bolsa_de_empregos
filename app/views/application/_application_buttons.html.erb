@@ -1,4 +1,4 @@
-<% application = current_candidate.has_already_applied_for(offer_id) %>
+<% application = current_candidate.try(:has_already_applied_for, offer_id) %>
 
 <% if application.nil?  %>
   <%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm application', data: { 'apply' => true, 'offer-id' => offer_id } %>
