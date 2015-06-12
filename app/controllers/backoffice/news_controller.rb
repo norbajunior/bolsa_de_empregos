@@ -1,8 +1,6 @@
 class Backoffice::NewsController < Backoffice::BaseController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
-  respond_to :js, :html, only: [:destroy]
-
   def index
     @news = Search.by(News.all, filter_params).page(params[:page])
   end

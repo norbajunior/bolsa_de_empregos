@@ -1,6 +1,8 @@
 class Backoffice::BaseController < ApplicationController
   layout 'backoffice'
 
+  respond_to :js, :html, only: [:destroy]
+
   before_action :authenticate_backofficer!
 
   def authenticate_backofficer!
