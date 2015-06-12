@@ -35,6 +35,6 @@ class User < ActiveRecord::Base
   end
 
   def already_interested_in(user_id)
-    interests.where(user_id: user_id).first
+    interests.find_by user_id: user_id
   end
 end
