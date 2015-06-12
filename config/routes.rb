@@ -23,6 +23,8 @@ BolsaDeEmpregos::Application.routes.draw do
   resources :applications, only: [:create, :destroy]
 
   namespace :backoffice do
+    root 'dashboard#index'
+
     concerns :accessable
   end
 end
