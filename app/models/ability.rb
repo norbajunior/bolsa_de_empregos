@@ -5,7 +5,7 @@ class Ability
     user ||= User.new
 
     can :read, :all
-    can :read, [Offer, News], active: true
+    cannot :read, [Offer, News], active: false
 
     if user.backoffice?
       can :manage, :all
@@ -28,7 +28,7 @@ class Ability
       cannot :read, :entity_interest_buttons
       cannot :read, :application_button
       cannot [:create, :destroy], Application
-
+      
       can [:dashboard, :update], Entity, id: user.id
       can :manage, Interest, interested_id: user.id
       can :manage, Offer,    entity_id: user.id
