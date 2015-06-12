@@ -1,0 +1,7 @@
+<% application = current_candidate.has_already_applied_for(offer_id) %>
+
+<% if application.nil?  %>
+  <%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm application', data: { 'apply' => true, 'offer-id' => offer_id } %>
+<% else %>
+  <%= link_to 'Remover Candidatura', '', class: 'btn btn-warning btn-sm application', data: { 'application-id' => application.id } %>
+<% end %>

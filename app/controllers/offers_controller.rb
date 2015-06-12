@@ -3,6 +3,7 @@ class OffersController < ApplicationController
 
   def index
     @offers = Search.by(Offer.active, filter_params).page(params[:page])
+    @current_candidate_applications = current_candidate.try(:applications)
   end
 
   def show

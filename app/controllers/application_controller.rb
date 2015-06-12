@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: I18n.t('flash.forbidden')
   end
+
+  def current_candidate
+    return unless current_user.candidate?
+    
+    current_user
+  end
 end

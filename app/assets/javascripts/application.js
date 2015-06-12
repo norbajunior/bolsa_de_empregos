@@ -18,6 +18,8 @@
 //= require handlebars
 //= require_tree .
 $(function() {
+  // refactor :(
+  // add or remove an interest
   $('a[data-interested]').click(function (e) {
     e.preventDefault();
 
@@ -39,5 +41,33 @@ $(function() {
          toggleClass("btn-success btn-warning");
       });
     }
-  })
+  });
+
+  // add or remove an application
+  $('a.application').click(function (e) {
+    e.preventDefault();
+
+    var that   = $(this),
+        alreadyApplied = that.attr('data-application-id');
+
+    if (alreadyApplied) {
+      $.post('/applications/' + alreadyApplied, { _method: 'delete' }, function (offerId) {
+         that.attr('data-apply', true).
+         attr('data-offer-id', offerId).
+         removeAttr('data-application-id').
+         text('Candidatar-me');
+      });
+    } else {
+      var params = { application: { offer_id: that.data('offer-id') } };
+
+      $.post('/applications', params, function (response) {
+         that.attr('data-application-id', response.id).
+         removeAttr('data-apply').
+         removeAttr('data-offer-id').
+         text('Remover candidatura');
+      });
+    }
+
+    that.toggleClass("btn-warning btn-success");
+  });
 });

@@ -4,7 +4,9 @@
   <%= link_to image_tag(@offer.photo_url(:medium), class: 'media-object img-rounded'), @offer %><br>
 
   <div class="text-center">
-    <p><%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %></p>
+    <% if can? :read, :application_button %>
+      <%= render 'application_buttons', offer_id: @offer.id %>
+    <% end %>
 
     <% if can? :update, @offer %>
       <p><%= link_to 'Editar', [:edit, @offer], class: 'btn btn-primary btn-sm' %></p>
@@ -35,7 +37,8 @@
 <% if current_user.try(:id) == @offer.entity_id %>
   <h3>Candidatos</h3>
 
-  <%#= render @offer.candidates %>
+  <%= render partial: 'candidates/candidate', collection: @offer.candidates,
+      locals: { display_links: false } %>
 <% else %>
   <h3>Outras ofertas na mesma área</h3>
 

@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608165658) do
+ActiveRecord::Schema.define(version: 20150612083531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "applications", force: true do |t|
+    t.integer  "offer_id"
+    t.integer  "candidate_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "interests", force: true do |t|
     t.integer  "interested_id"
@@ -80,6 +88,9 @@ ActiveRecord::Schema.define(version: 20150608165658) do
     t.boolean  "backoffice",            default: false
     t.string   "photo"
   end
+
+  add_foreign_key "applications", "offers", name: "applications_offer_id_fk"
+  add_foreign_key "applications", "users", name: "applications_candidate_id_fk", column: "candidate_id"
 
   add_foreign_key "news", "users", name: "news_user_id_fk"
 

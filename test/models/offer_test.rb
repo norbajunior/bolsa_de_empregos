@@ -5,6 +5,9 @@ class OfferTest < ActiveSupport::TestCase
 
   context 'associations' do
     should belong_to :entity
+
+    should have_many :applications
+    should have_many(:candidates).through(:applications)
   end
 
   context 'validations' do

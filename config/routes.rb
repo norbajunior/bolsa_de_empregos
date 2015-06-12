@@ -16,4 +16,5 @@ BolsaDeEmpregos::Application.routes.draw do
   resources :news
   resources :offers
   resources :interests, only: [:create, :destroy]
+  resources :applications, only: [:create, :destroy]
 end

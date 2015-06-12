@@ -15,8 +15,8 @@
 
   <% if display_links %>
     <div class="links">
-      <% if can? :read, :application_buttons %>
-        <%= link_to 'Candidatar-me', '', class: 'btn btn-success btn-sm' %>
+      <% if can? :read, :application_button %>
+        <%= render 'application_buttons', offer_id: offer.id %>
       <% end %>
 
       <% if can? :update, offer %>

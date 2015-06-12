@@ -18,6 +18,7 @@ class Ability
 
       can [:dashboard, :update], Candidate, id: user.id
 
+      can [:create, :destroy], Application, candidate_id: user.id
       can :manage, Interest, interested_id: user.id
       can :manage, :password_reset
     elsif user.entity?
@@ -25,7 +26,8 @@ class Ability
       cannot :create, Entity
       cannot [:create, :destroy], Interest, user_id: user.id
       cannot :read, :entity_interest_buttons
-      cannot :read, :application_buttons
+      cannot :read, :application_button
+      cannot [:create, :destroy], Application
 
       can [:dashboard, :update], Entity, id: user.id
       can :manage, Interest, interested_id: user.id
@@ -37,6 +39,7 @@ class Ability
       cannot :manage, :password_reset
       cannot :read, :entity_interest_buttons
       cannot :read, :candidate_interest_buttons
+      cannot :read, :application_button
     end
   end
 end

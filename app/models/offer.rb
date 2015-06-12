@@ -9,6 +9,9 @@ class Offer < ActiveRecord::Base
 
   belongs_to :entity
 
+  has_many :applications
+  has_many :candidates, through: :applications
+
   validates :title,
             :start_at,
             :end_at,

@@ -2,19 +2,8 @@
   <div class="col-xs-6">
     <h3>Candidaturas</h3>
 
-    <div class="media">
-      <div class="media-left">
-        <a href="#">
-          <img class="media-object" src="" alt="...">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">Ruby Developer</h4>
-        Lorem ipsum dolor sit amet, mea viris mentitum cu, scripta interesset
-        eu quo. Eu fugit fierent percipit cum. Ius dolorem mandamus id.
-        Quo ut primis insolens, augue phaedrum persequeris mel an.
-      </div>
-    </div>
+    <%= render partial: 'dashboard/offer', collection: @candidate.applied_offers,
+        locals: { display_links: false } %>
 
     <h3>Empresas interessadas em mim</h3>
 
