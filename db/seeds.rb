@@ -2,12 +2,12 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 ActiveRecord::Base.transaction do
-  u = User.new({
+  u = Backoffice.new({
     name: 'Backoffice',
     email: 'backoffice@bolsademprego.pt',
     password: '123456',
-    password_confirmation: '123456',
-    backoffice: true})
+    password_confirmation: '123456'
+  })
 
   u.save(validate: false)
 
