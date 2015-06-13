@@ -15,6 +15,7 @@ gem 'foreigner', '1.7.3'
 gem 'cancancan', '~> 1.10'
 gem 'kaminari', '0.15.1'
 gem 'faker'
+gem 'valid_url'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.4'

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   scope :type, ->(type) { where(type: type) }
 
   with_options on: :create, on: :update do |u|
+    u.validates :site, url: true
     u.validates :password, confirmation: true
     u.validates :name,
                 :photo,
