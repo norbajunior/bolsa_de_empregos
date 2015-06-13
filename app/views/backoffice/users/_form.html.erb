@@ -1,0 +1,22 @@
+<%= simple_form_for @user, url: url, as: :user do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <%= f.input :name, wrapper_html: { class: 'col-xs-4' } %>
+
+    <div class="col-xs-4 col-xs-offset-1">
+      <h5><strong>Tipo</strong></h5>
+      <p>Backoffice</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= f.input :email, wrapper_html: { class: 'col-xs-4' } %>
+    <%= f.input :active,  wrapper_html: { class: 'col-xs-2 col-xs-offset-1' } %>
+  </div>
+
+  <div class="row">
+    <%= f.button :submit, class: 'btn btn-success btn-submit' %>
+    <%= link_to 'Cancelar', backoffice_user_path(@user), class: 'btn btn-default' %>
+  </div>
+<% end %>

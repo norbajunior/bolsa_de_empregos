@@ -9,6 +9,7 @@ pt:
     contact: Contatos
     presentation: Apresentação
     photo: Foto
+    active: Ativo
 
   activerecord:
     attributes:

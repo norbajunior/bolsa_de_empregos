@@ -1,0 +1,6 @@
+pt:
+  enumerations:
+    user_type:
+      backoffice: Backoffice
+      entity: Entidade
+      candidate: Candidato

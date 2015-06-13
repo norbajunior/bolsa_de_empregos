@@ -1,0 +1,35 @@
+<h3>Detalhe do utilizador</h3>
+
+<div class="row">
+  <div class="col-xs-4">
+    <h5><strong>Nome</strong></h5>
+    <%= @user.name %>
+  </div>
+
+  <div class="col-xs-4">
+    <h5><strong>Tipo</strong></h5>
+    <%= UserType.t @user.type %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-4">
+    <h5><strong>Email</strong></h5>
+    <%= @user.email %>
+  </div>
+
+  <div class="col-xs-4">
+    <h5><strong>Activo</strong></h5>
+    <%= t @user.active %>
+  </div>
+</div><br>
+
+<div class="row">
+   <div class="col-xs-12">
+     <%= link_to 'Editar', edit_backoffice_user_path(@user), class: 'btn btn-primary' %>
+     <%= link_to 'Alterar Password', backoffice_edit_password_path(@user), class: 'btn btn-warning btn' %>
+     <%= link_to 'Apagar', backoffice_user_path(@user), class: 'btn btn-danger', method: :delete, confirm: 'Tens certeza?' %>
+     <%= link_to 'Inserir', new_backoffice_user_path, class: 'btn btn-success' %>
+     <%= link_to 'Listagem', backoffice_users_path, class: 'btn btn-default' %>
+   </div>
+</div>

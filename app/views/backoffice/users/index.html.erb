@@ -1,0 +1,45 @@
+<h3>Utilizadores</h3>
+
+<%= simple_form_for :filter, url: backoffice_users_path, method: :get, html: { class: 'form-inline' },
+    defaults: { input_html: { class: 'form-control' },
+    wrapper_html: { class: 'form-group' },
+    label_html: { class: 'sr-only' } } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: 'sr-only' %>
+
+    <div class="input-group">
+      <%= render 'button_search' %>
+
+      <%= f.input_field :name, placeholder: 'Pesquisar' %>
+    </div>
+  </div>
+
+  <%= f.input :type, collection: UserType, prompt: 'Tipo' %>
+<% end %><br>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <th width="50%">Nome</th>
+    <th>Tipo</th>
+    <th>Activo</th>
+    <th width="35%">Ações</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr id="<%= dom_id(user) %>">
+        <td><%= user.name %></td>
+        <td><%= UserType.t(user.type) %></td>
+        <td><%= t user.active %></td>
+        <td colspan="3" class="text-right">
+          <%= link_to 'Detalhe', backoffice_user_path(user), class: 'btn btn-default' %>
+          <%= link_to 'Editar', edit_backoffice_user_path(user), class: 'btn btn-primary' %>
+          <%= link_to 'Apagar', backoffice_user_path(user), class: 'btn btn-danger', data: { method: :delete, remote: true } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'paginate', collection: @users %>
+
+<%= link_to 'Inserir', new_backoffice_user_path, class: 'btn btn-success' %>
