@@ -1,0 +1,17 @@
+<h3>Redefina sua senha</h3>
+
+<%= simple_form_for @user, url: update_forgot_password_path, as: :user do |f| %>
+  <%= f.input :password_reset_token, as: :hidden %>
+
+  <div class="row">
+    <%= f.input :password, wrapper_html: { class: 'col-xs-4' } %>
+  </div>
+
+  <div class="row">
+    <%= f.input :password_confirmation, wrapper_html: { class: 'col-xs-4' } %>
+  </div>
+
+  <div class="row">
+    <%= f.button :submit, class: "btn btn-success btn-submit" %>
+  </div>
+<% end %>

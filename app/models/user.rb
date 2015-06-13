@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
 
+  def generate_password_reset_token!
+    update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(16))
+  end
+
   def entity?
     type == 'Entity'
   end

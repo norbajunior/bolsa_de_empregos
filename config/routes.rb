@@ -13,6 +13,11 @@ BolsaDeEmpregos::Application.routes.draw do
   get    'password/reset' => 'password_reset#edit'
   patch  'password/reset' => 'password_reset#update'
 
+  get    'password/forgot' => 'forgot_password#new', as: :new_forgot_password
+  post   'password/forgot' => 'forgot_password#create', as: :create_forgot_password
+  get    'password/forgot/:token' => 'forgot_password#edit', as: :edit_forgot_password
+  patch   'password/forgot/' => 'forgot_password#update', as: :update_forgot_password
+
   get 'candidates/:id/dashboard' => 'candidates#dashboard', as: :dashboard_candidate
   get 'entities/:id/dashboard' => 'entities#dashboard', as: :dashboard_entity
 

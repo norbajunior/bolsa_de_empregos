@@ -1,0 +1,10 @@
+<h3>Esqueci-me da password</h3>
+
+<%= simple_form_for :user, url: create_forgot_password_path do |f| %>
+  <div class="row">
+    <%= f.input :email, wrapper_html: { class: 'col-xs-4' } %>
+  </div>
+  <div class="row">
+    <%= f.button :submit, 'Ok', class: "btn btn-success btn-submit" %>
+  </div>
+<% end %>

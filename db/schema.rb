@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612163007) do
+ActiveRecord::Schema.define(version: 20150613193320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,10 @@ ActiveRecord::Schema.define(version: 20150612163007) do
     t.string   "type"
     t.string   "photo"
     t.boolean  "active",                default: true
+    t.string   "password_reset_token"
   end
+
+  add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token", using: :btree
 
   add_foreign_key "applications", "offers", name: "applications_offer_id_fk"
   add_foreign_key "applications", "users", name: "applications_candidate_id_fk", column: "candidate_id"

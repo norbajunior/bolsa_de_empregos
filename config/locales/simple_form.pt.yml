@@ -18,6 +18,9 @@ pt:
       user:
         create: "Ok"
         update: "Ok"
+      backoffice:
+        create: "Ok"
+        update: "Ok"
   simple_form:
     error_notification:
       default_message: "Por favor reveja os problemas abaixo:"
