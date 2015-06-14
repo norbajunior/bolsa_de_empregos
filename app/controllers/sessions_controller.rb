@@ -5,9 +5,13 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
 
     if user && user.authenticate(params[:session][:password])
-      log_in user
+      log_in user ; flash[:notice] = 'Login realizado com sucesso'
 
-      redirect_to [:dashboard, user], notice: 'Login realizado com sucesso'
+      if user.backoffice?
+        redirect_to root_path
+      else
+        redirect_to [:dashboard, user]
+      end
     else
       flash.now[:alert] = 'Email/password inválidos'
 
