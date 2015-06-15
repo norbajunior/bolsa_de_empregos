@@ -12,7 +12,7 @@ ActiveRecord::Base.transaction do
   u.save(validate: false)
 
   Candidate.create!(
-    30.times.map do
+    30.times.map do |i|
       {
         email: Faker::Internet.email,
         date_of_birth: Faker::Date.between(40.years.ago, 20.years.ago),
@@ -21,7 +21,7 @@ ActiveRecord::Base.transaction do
         name: Faker::Name.name,
         identity_number: Faker::Number.number(10),
         address: Faker::Address.street_address,
-        zipcode: Faker::Address.zip_code,
+        zipcode: "1234-#{i}".ljust(8, '0'),
         place: Concelhos.list.sample,
         remote_photo_url: Faker::Avatar.image,
         site: Faker::Internet.url,
@@ -31,8 +31,8 @@ ActiveRecord::Base.transaction do
         professional_area: ProfessionalArea.list.sample,
         scholarity: Scholarity.list.sample,
         employment_status: EmploymentStatus.list.sample,
-        contact: Faker::PhoneNumber.phone_number,
-        other_contact: Faker::PhoneNumber.cell_phone,
+        contact: '999 999 999',
+        other_contact: '987 765 345',
         experience: Faker::Lorem.paragraph(50)
       }
     end
@@ -48,30 +48,30 @@ ActiveRecord::Base.transaction do
     place: 'Porto',
     site: 'http://wiremaze.com',
     remote_photo_url: 'https://s3.amazonaws.com/f.cl.ly/items/0n26012A3s1y2b0Y3g3Q/Screenshot%202015-06-08%2023.55.01.png',
-    nif: '1234567',
+    nif: 123456789,
     professional_activity: 'Software Development',
     presentation: 'Criamos soluções que ajudam os nossos clientes a ultrapassar os seus desafios de forma simples.',
-    contact: '(+351) 228 328 813',
-    other_contact: '(+351) 228 328 823'
+    contact: '999 999 999',
+    other_contact: '987 765 345'
   })
 
   entities = Entity.create!(
-    20.times.map do
+    20.times.map do |i|
       {
         email: Faker::Internet.email,
         password: '123456',
         password_confirmation: '123456',
         name: Faker::Company.name,
         address: Faker::Address.street_address,
-        zipcode: Faker::Address.zip_code,
+        zipcode: "1234-#{i}".ljust(8, '0'),
         place: Concelhos.list.sample,
         remote_photo_url: Faker::Company.logo,
         site: Faker::Internet.url,
         nif: Faker::Number.number(9),
         professional_activity: ProfessionalActivity.list.sample,
         presentation: Faker::Lorem.paragraph(3),
-        contact: Faker::PhoneNumber.phone_number,
-        other_contact: Faker::PhoneNumber.cell_phone
+        contact: '999 999 999',
+        other_contact: '987 765 345'
       }
     end
   )
