@@ -15,6 +15,7 @@ class Candidate < User
   validates :date_of_birth, timeliness: { on_or_before: -> { 15.years.ago }, type: :date }, allow_blank: true
   validates :date_of_birth, :professional_area, :cv, :scholarity, :employment_status, presence: true
   validates :identity_number, numericality: { only_integer: true }, length: { is: 15 }, allow_blank: true
+  validates :cv, file_size: { less_than: 2.megabytes }
 
   %i[employment_status professional_area scholarity].each do |name|
     scope name, ->(value) { where(name => value) }

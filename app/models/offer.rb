@@ -12,6 +12,7 @@ class Offer < ActiveRecord::Base
   has_many :applications, dependent: :restrict
   has_many :candidates, through: :applications
 
+  validates :photo, file_size: { less_than: 1.megabyte }
   validates :end_at, timeliness: { on_or_after: :start_at, type: :date }, allow_blank: true
   validates :start_at, timeliness: { type: :date }, allow_blank: true
   validates :title,
