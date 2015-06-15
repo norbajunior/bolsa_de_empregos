@@ -20,19 +20,19 @@ class Backoffice::NewsController < Backoffice::BaseController
 
     flash[:notice] = 'Notícia criada com sucesso' if @news.save
 
-    respond_with [:backoffice, @news]
+    respond_with @news, location: [:backoffice, @news]
   end
 
   def update
     flash[:notice] = 'Notícia atualizada com sucesso' if @news.update(news_params)
 
-    respond_with [:backoffice, @news]
+    respond_with @news, location: [:backoffice, @news]
   end
 
   def destroy
     @news.destroy
 
-    respond_with [:backoffice, @news]
+    respond_with @news, location: [:backoffice, @news]
   end
 
   private
