@@ -22,6 +22,7 @@
 
   <div class="row">
     <%= f.input :image, wrapper_html: { class: 'col-xs-2' }, input_html: { class: 'form-control', input_html: { 'data-max-size' => 2.megabytes } } %>
+    <%= f.hidden_field :image_cache %>
   </div>
 
   <div class="row">

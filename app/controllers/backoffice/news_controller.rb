@@ -42,7 +42,7 @@ class Backoffice::NewsController < Backoffice::BaseController
   end
 
   def news_params
-    params.require(:news).permit(:title, :date, :summary, :text, :image, :featured, :active)
+    params.require(:news).permit(:title, :date, :summary, :text, :image, :featured, :active, :image_cache)
   end
 
   def filter_params

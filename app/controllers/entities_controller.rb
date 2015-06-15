@@ -50,7 +50,7 @@ class EntitiesController < ApplicationController
     params.require(:entity).permit(
       :email, :password, :password_confirmation, :name, :address, :zipcode,
       :place, :site, :nif, :professional_activity, :presentation, :contact,
-      :other_contact, :photo)
+      :other_contact, :photo, :photo_cache)
   end
 
   def filter_params

@@ -46,7 +46,7 @@ class CandidatesController < ApplicationController
     params.require(:candidate).permit(:email, :password, :password_confirmation, :name,
       :address, :zipcode, :place, :site, :date_of_birth, :identity_number, :cv,
       :professional_area, :contact, :other_contact, :scholarity, :education, :presentation,
-      :employment_status, :experience, :photo, :cv)
+      :employment_status, :experience, :photo, :photo_cache, :cv_cache)
   end
 
   def filter_params
