@@ -4,16 +4,22 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
 
-    if user && user.authenticate(params[:session][:password])
-      log_in user ; flash[:notice] = 'Login realizado com sucesso'
+    if user && user.active?
+      if user.authenticate(params[:session][:password])
+        log_in user ; flash[:notice] = 'Login realizado com sucesso'
 
-      if user.backoffice?
-        redirect_to root_path
+        if user.backoffice?
+          redirect_to root_path
+        else
+          redirect_to [:dashboard, user]
+        end
       else
-        redirect_to [:dashboard, user]
+        flash.now[:alert] = 'Email/password inválidos'
+
+        render 'new'
       end
     else
-      flash.now[:alert] = 'Email/password inválidos'
+      flash.now[:warning] = 'Usuário inativo.'
 
       render 'new'
     end
