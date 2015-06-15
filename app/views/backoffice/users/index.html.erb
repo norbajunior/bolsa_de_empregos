@@ -5,12 +5,12 @@
     wrapper_html: { class: 'form-group' },
     label_html: { class: 'sr-only' } } do |f| %>
   <div class="form-group">
-    <%= f.label :title, class: 'sr-only' %>
+    <%= f.label :by_name, class: 'sr-only' %>
 
     <div class="input-group">
       <%= render 'button_search' %>
 
-      <%= f.input_field :name, placeholder: 'Pesquisar' %>
+      <%= f.input_field :by_name, placeholder: 'Pesquisar' %>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
       <tr id="<%= dom_id(user) %>">
         <td><%= user.name %></td>
         <td><%= UserType.t(user.type) %></td>
-        <td><%= t user.active %></td>
+        <td><%= t user.active.to_s %></td>
         <td colspan="3" class="text-right">
           <%= link_to 'Detalhe', backoffice_user_path(user), class: 'btn btn-default' %>
           <%= link_to 'Editar', edit_backoffice_user_path(user), class: 'btn btn-primary' %>
