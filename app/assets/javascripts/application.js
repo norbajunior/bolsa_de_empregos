@@ -70,4 +70,23 @@ $(function() {
 
     that.toggleClass("btn-warning btn-success");
   });
+
+  $('input[type=file]').change(function(){
+    var file  = this.files[0],
+        size  = file.size || file.fileSize,
+        maxSize = $(this).data('max-size'),
+        parentElement = $(this).parent();
+
+    if (size > maxSize) {
+      $(parentElement).addClass('has-error');
+
+      var source = $('#error-message-template').html(),
+          template = Handlebars.compile(source);
+
+      $(parentElement).append(template({msg: 'deve ser menor que ' + (maxSize / 1024 / 1024) + 'MB' }));
+    } else {
+      $(parentElement).removeClass('has-error');
+      $(parentElement).find('.help-block').remove();
+    }
+	});
 });

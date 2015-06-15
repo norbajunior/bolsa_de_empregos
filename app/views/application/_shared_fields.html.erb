@@ -11,7 +11,8 @@
 
 <div class="row">
   <%= f.input :name, wrapper_html: { class: 'col-xs-6' } %>
-  <%= f.input :photo, wrapper_html: { class: 'col-xs-3'} %>
+  <%= f.input :photo, wrapper_html: { class: 'col-xs-6'}, input_html: { 'data-max-size' => 1.megabyte } %>
+  <%= f.hidden_field :photo_cache %>
 </div>
 
 <div class="row">
@@ -28,3 +29,5 @@
   <%= f.input :other_contact, wrapper_html: { class: 'col-xs-2' }, label_html: { class: 'invisible' } %>
   <%= f.input :site, wrapper_html: { class: 'col-xs-6 col-xs-offset-2' } %>
 </div>
+
+<%= render 'error_message_template' %>
