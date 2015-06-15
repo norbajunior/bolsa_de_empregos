@@ -28,8 +28,8 @@
       <tr id="<%= dom_id(news) %>">
         <td><%= truncate news.title, length: 80 %></td>
         <td><%= l news.date %></td>
-        <td><%= t news.featured %></td>
-        <td><%= t news.active %></td>
+        <td><%= t news.featured.to_s %></td>
+        <td><%= t news.active.to_s %></td>
         <td colspan="3">
           <%= link_to 'Detalhe', [:backoffice, news], class: 'btn btn-default' %>
           <%= link_to 'Editar', [:edit, :backoffice, news], class: 'btn btn-primary' %>
