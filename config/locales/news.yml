@@ -1,5 +1,11 @@
 pt:
   activerecord:
+    errors:
+      models:
+        news:
+          attributes:
+            date:
+              invalid_date: data inválida
     models:
       news: Notícia
     attributes:

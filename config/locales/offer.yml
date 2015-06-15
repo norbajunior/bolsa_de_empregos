@@ -3,6 +3,16 @@ pt:
     models:
       offer: Oferta
   activerecord:
+    errors:
+      models:
+        offer:
+          attributes:
+            start_at:
+              on_or_after: 'data não pode ser anterior à hoje'
+              invalid_date: 'data inválida'
+            end_at:
+              on_or_after: deve ser menor que a data de início
+              invalid_date: 'data inválida'
     attributes:
       offer:
         title: Título

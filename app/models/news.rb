@@ -5,6 +5,7 @@ class News < ActiveRecord::Base
 
   mount_uploader :image, PhotoUploader
 
+  validates :date, timeliness: { type: :date }, allow_blank: true
   validates :title, :date, :summary, :text, :image, presence: true
 
   scope :title, ->(title) { where('title ILIKE ?', "%#{title}%") }

@@ -18,6 +18,17 @@ class OfferTest < ActiveSupport::TestCase
     should validate_presence_of :photo
     should validate_presence_of :professional_activity
     should validate_presence_of :contract
+
+    context '#end_at' do
+      should 'be invalid when before #start_at' do
+        @offer.start_at = Date.current
+        @offer.end_at = 1.day.ago
+
+        assert_not @offer.valid?
+
+        assert_includes @offer.errors.messages[:end_at], 'deve ser menor que a data de início'
+      end
+    end
   end
 
   context '#entity_name' do
