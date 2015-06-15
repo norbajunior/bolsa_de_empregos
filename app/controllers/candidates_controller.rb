@@ -25,7 +25,7 @@ class CandidatesController < ApplicationController
       log_in @candidate ; flash[:notice] = 'Candidato criado com sucesso'
     end
 
-    respond_with @candidate
+    respond_with @candidate, location: [:dashboard, @candidate]
   end
 
   def update
@@ -33,7 +33,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = 'Candidato atualizado com sucesso'
     end
 
-    respond_with @candidate
+    respond_with @candidate, location: [:dashboard, @candidate]
   end
 
   private

@@ -29,7 +29,7 @@ class EntitiesController < ApplicationController
       log_in @entity ; flash[:notice] = 'Entidade criado com sucesso'
     end
 
-    respond_with @entity
+    respond_with @entity, location: [:dashboard, @entity]
   end
 
   def update
@@ -37,7 +37,7 @@ class EntitiesController < ApplicationController
       flash[:notice] = 'Entidade criado com sucesso'
     end
 
-    respond_with @entity
+    respond_with @entity, location: [:dashboard, @entity]
   end
 
   private
