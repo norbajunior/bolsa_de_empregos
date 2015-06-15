@@ -7,8 +7,8 @@
   <div class="media-body">
     <h4 class="media-heading">
       <%= link_to entity.name, entity %><br>
-      <%#= entity.offers.size %>
     </h4>
+    <div class="text-muted"><%= number_of_active_offers(entity) %></div>
 
     <%= normalize_html_text entity.presentation %>
   </div>
