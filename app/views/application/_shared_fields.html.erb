@@ -20,7 +20,7 @@
 </div>
 
 <div class="row">
-  <%= f.input :zipcode, wrapper_html: { class: 'col-xs-2' } %>
+  <%= f.input :zipcode, wrapper_html: { class: 'col-xs-2' }, input_html: { 'data-mask' => '00000-000' } %>
   <%= f.input :place, collection: Concelhos, wrapper_html: { class: 'col-xs-6 col-xs-offset-4' } %>
 </div>
 

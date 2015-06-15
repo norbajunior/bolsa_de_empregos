@@ -15,8 +15,10 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-filestyle
+//= require jquery.mask
 //= require handlebars
 //= require_tree .
+
 $(function() {
   // refactor :(
   // add or remove an interest

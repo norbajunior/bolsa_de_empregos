@@ -1,28 +1,28 @@
-$(function () {
-  $('#entity-dashboard').on('click', 'a[data-active]', function (e) {
-    e.preventDefault();
+$('#entity_nif').mask('000000000');
 
-    var id = $(this).data('offer-id'),
-        active = !$(this).data('active'),
-        params = { _method: 'patch', offer: { active: active } };
+$('#entity-dashboard').on('click', 'a[data-active]', function (e) {
+  e.preventDefault();
 
-    $.post('/offers/' + id + '.json', params, function (offer) {
-      var source = $('#offer-template').html(),
-          template = Handlebars.compile(source);
+  var id = $(this).data('offer-id'),
+      active = !$(this).data('active'),
+      params = { _method: 'patch', offer: { active: active } };
 
-      if (active) {
-        $('#inactive-offers #offer_' + id).fadeOut('slow', function() {
-          $(this).remove();
+  $.post('/offers/' + id + '.json', params, function (offer) {
+    var source = $('#offer-template').html(),
+        template = Handlebars.compile(source);
 
-          $(template(offer)).appendTo('#active-offers').hide().fadeIn(1000);
-        });
-      } else {
-        $('#active-offers #offer_' + id).fadeOut('slow', function() {
-          $(this).remove();
+    if (active) {
+      $('#inactive-offers #offer_' + id).fadeOut('slow', function() {
+        $(this).remove();
 
-          $(template(offer)).appendTo('#inactive-offers').hide().fadeIn(1000);
-        });
-      }
-    });
+        $(template(offer)).appendTo('#active-offers').hide().fadeIn(1000);
+      });
+    } else {
+      $('#active-offers #offer_' + id).fadeOut('slow', function() {
+        $(this).remove();
+
+        $(template(offer)).appendTo('#inactive-offers').hide().fadeIn(1000);
+      });
+    }
   });
 });
