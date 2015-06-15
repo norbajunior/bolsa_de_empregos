@@ -9,5 +9,7 @@ class ApplicationTest < ActiveSupport::TestCase
   context 'validations' do
     should validate_presence_of :offer_id
     should validate_presence_of :candidate_id
+
+    should validate_uniqueness_of(:offer_id).scoped_to(:candidate_id)
   end
 end
