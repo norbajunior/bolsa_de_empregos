@@ -15,15 +15,25 @@ class UserTest < ActiveSupport::TestCase
 
     should validate_presence_of :email
     should validate_presence_of :name
-    should validate_presence_of :photo
-    should validate_presence_of :address
-    should validate_presence_of :place
-    should validate_presence_of :zipcode
-    should validate_presence_of :contact
-    should validate_presence_of :presentation
 
-    should allow_value('norbejunior@gmail.com').for(:email)
-    should_not allow_value('norbejuniorgmail.com').for(:email)
+    should validate_length_of(:name).is_at_least(2).is_at_most(80)
+    should validate_length_of(:password).is_at_least(6)
+
+    should validate_uniqueness_of(:email).case_insensitive
+    should validate_length_of(:email).is_at_most(100)
+
+    should allow_value('norberto.oliveira@wiremaze.com').for(:email)
+    should_not allow_value('norberto.oliveirawiremaze.com').for(:email)
+  end
+
+  context '#generate_password_reset_token!' do
+    should 'generate a password token and update user' do
+      assert_nil users(:norberto).password_reset_token
+
+      users(:norberto).generate_password_reset_token!
+
+      assert_not_nil users(:norberto).password_reset_token
+    end
   end
 
   context '#entity?' do
@@ -35,10 +45,18 @@ class UserTest < ActiveSupport::TestCase
   end
 
   context '#candidate?' do
-    should 'returns true when user is a #candidate?' do
+    should 'return true when user is a #candidate?' do
       @user.type = 'Candidate'
 
       assert @user.candidate?
+    end
+  end
+
+  context '#backoffice?' do
+    should 'return true when user is a #backoffice?' do
+      @user.type = 'Backoffice'
+
+      assert @user.backoffice?
     end
   end
 end

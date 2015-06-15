@@ -1,4 +1,6 @@
 class Candidate < User
+  include SharedUserValidations
+
   has_enumeration_for :employment_status
   has_enumeration_for :professional_area
   has_enumeration_for :scholarity
@@ -10,11 +12,7 @@ class Candidate < User
   has_many :applications
   has_many :applied_offers, through: :applications, source: :offer
 
-  validates :date_of_birth,
-            :professional_area,
-            :cv,
-            :scholarity,
-            :employment_status, presence: true
+  validates :identity_number, numericality: { only_integer: true }, length: { is: 15 }, allow_blank: true
 
   %i[employment_status professional_area scholarity].each do |name|
     scope name, ->(value) { where(name => value) }

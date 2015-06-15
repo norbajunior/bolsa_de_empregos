@@ -12,6 +12,13 @@ pt:
     active: Ativo
 
   activerecord:
+    errors:
+      models:
+        candidate:
+          attributes:
+            date_of_birth:
+              on_or_before: 'data inválida'
+              invalid_date: 'data inválida'
     attributes:
       entity:
         <<: *shared_attributes

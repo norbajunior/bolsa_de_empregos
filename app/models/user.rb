@@ -16,20 +16,10 @@ class User < ActiveRecord::Base
   scope :place, ->(place) { where(place: place) }
   scope :type, ->(type) { where(type: type) }
 
-  with_options on: :create, on: :update do |u|
-    u.validates :site, url: true
-    u.validates :password, confirmation: true
-    u.validates :name,
-                :photo,
-                :address,
-                :place,
-                :zipcode,
-                :contact,
-                :presentation, presence: true
-  end
-
-  validates :password, length: { minimum: 6 }, allow_nil: true
-  validates :email, length: { maximum: 255 },
+  validates :name, :email, presence: true
+  validates :name, length: { in: 2..80 }
+  validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :email, length: { maximum: 100 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
 
