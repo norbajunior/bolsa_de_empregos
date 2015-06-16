@@ -1,7 +1,7 @@
 <h2><%= @entity.name %></h2>
 
 <div class="media-left">
-  <%= link_to image_tag(@entity.photo_url(:medium), class: 'media-object img-rounded'), @entity %>
+  <%= link_to image_tag(@entity.photo_url(:medium), class: 'media-object img-rounded'), @entity %><br>
 
   <div class="text-center">
     <% if can? :read, :entity_interest_buttons %>
@@ -47,6 +47,6 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= link_to 'Ver entidades', entities_path, class: 'btn bt-link' %>
+    <%= link_to 'Ver entidades', entities_path %>
   </div>
 </div>
