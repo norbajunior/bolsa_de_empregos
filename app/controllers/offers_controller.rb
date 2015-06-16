@@ -49,10 +49,4 @@ class OffersController < ApplicationController
     params.require(:offer).permit(:title, :start_at, :end_at, :description,
                                   :photo, :professional_activity, :contract, :active, :salary)
   end
-
-  def authenticate_offers_entity!
-    @offer = Offer.find(params[:id])
-
-    not_found if current_entity.id != @offer.entity_id
-  end
 end
