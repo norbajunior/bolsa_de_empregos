@@ -6,11 +6,10 @@ wiremaze:
   name: 'Wiremaze'
   address: 'Edifício Capitólio - Torre Venetto Av. França 256, Piso 6, Sala 6.8'
   zipcode: '4050-476'
-  photo: '022.gif'
-  place: 'Porto'
+  place: <%= Concelhos::PORTO %>
   site: 'http://wiremaze.com'
-  nif: '1234567'
-  professional_activity: 'Software Development'
+  nif: '123456789'
+  professional_activity: <%= ProfessionalActivity::SOFTWARE_DEVELOPMENT %>
   presentation: 'Criamos soluções que ajudam os nossos clientes a
                  ultrapassar os seus desafios de forma simples.'
   contact: (+351) 228 328 813

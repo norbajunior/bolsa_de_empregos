@@ -26,10 +26,10 @@ class EntitiesController < ApplicationController
     @entity = Entity.new(entity_params)
 
     if @entity.save
-      log_in @entity ; flash[:notice] = 'Entidade criado com sucesso'
+      log_in @entity ; flash[:notice] = 'Entidade registada com sucesso'
     end
 
-    respond_with @entity, location: [:dashboard, @entity]
+    respond_with @entity, location: dashboard_entity_path(@entity)
   end
 
   def update
@@ -37,7 +37,7 @@ class EntitiesController < ApplicationController
       flash[:notice] = 'Entidade atualizada com sucesso'
     end
 
-    respond_with @entity, location: [:dashboard, @entity]
+    respond_with @entity, location: dashboard_entity_path(@entity)
   end
 
   private
