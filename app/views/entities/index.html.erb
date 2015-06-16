@@ -5,12 +5,12 @@
     wrapper_html: { class: 'form-group' },
     label_html: { class: 'sr-only' } } do |f| %>
   <div class="form-group">
-    <%= f.label :by_name, class: 'sr-only' %>
+    <%= f.label :query, class: 'sr-only' %>
 
     <div class="input-group">
       <%= render 'button_search' %>
 
-      <%= f.input_field :by_name, placeholder: 'Pesquisar' %>
+      <%= f.input_field :query, placeholder: 'Pesquisar' %>
     </div>
   </div>
 

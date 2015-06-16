@@ -55,7 +55,7 @@ class EntitiesController < ApplicationController
 
   def filter_params
     if params[:filter]
-      params.require(:filter).permit(:by_name, :professional_activity, :place)
+      params.require(:filter).permit(:query, :professional_activity, :place)
     end
   end
 end

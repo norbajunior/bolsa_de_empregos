@@ -51,7 +51,7 @@ class CandidatesController < ApplicationController
 
   def filter_params
     if params[:filter].present?
-      params.require(:filter).permit(:by_name, :place, :professional_area, :employment_status)
+      params.require(:filter).permit(:query, :place, :professional_area, :employment_status)
     end
   end
 end

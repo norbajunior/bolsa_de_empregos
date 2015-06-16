@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include PgSearch
   include DefaultScope
 
   attr_accessor :current_password
@@ -12,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :interests, foreign_key: :interested_id
   has_many :interested, class_name: 'Interest', foreign_key: :user_id
 
+  pg_search_scope :query, :against => [:name, :presentation]
   scope :by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
   scope :place, ->(place) { where(place: place) }
   scope :type, ->(type) { where(type: type) }
