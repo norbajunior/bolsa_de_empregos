@@ -1,0 +1,19 @@
+<h2>Destaques</h2>
+
+<div class="row" id="featured">
+  <div class="col-md-3">
+    <h3>Candidatos</h3>
+
+    <%= render partial: 'candidate', collection: @candidates %><br>
+  </div>
+  <div class="col-md-4">
+    <h3>Entidades</h3>
+
+    <%= render partial: 'entity', collection: @entities %><br>
+  </div>
+  <div class="col-md-5">
+    <h3>Ofertas</h3>
+
+    <%= render partial: 'offer', collection: @offers, locals: { display_links: true } %>
+  </div>
+</div>

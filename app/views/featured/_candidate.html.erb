@@ -1,0 +1,23 @@
+<div class="media">
+  <div class="media-left">
+    <%= link_to image_tag(candidate.photo_url(:thumb), class: 'media-object img-rounded'), candidate %>
+  </div>
+
+  <div class="media-body">
+    <h5 class="media-heading"><%= link_to candidate.name, candidate %></h5>
+    <p>
+      <%= candidate.professional_area_humanize %><br />
+      <%= candidate.scholarity_humanize %><br />
+    </p>
+  </div>
+
+  <div class="links">
+    <% if can? :read, :candidate_interest_buttons %>
+      <%= render 'interest_buttons', user_id: candidate.id %>
+    <% end %>
+
+    <% if can? :update, candidate %>
+      <%= link_to 'Editar', [:edit, candidate], class: 'btn btn-primary btn-sm' %>
+    <% end %>
+  </div>
+</div>

@@ -46,4 +46,12 @@ class Offer < ActiveRecord::Base
   %i[professional_activity salary contract].each do |name|
     scope name, ->(value) { where(name => value) }
   end
+
+  scope :featured, -> do
+    select('offers.*, count(applications.offer_id) AS count_applications').
+    joins(:applications).
+    group('offers.id').
+    order('count_applications DESC').
+    active
+  end
 end

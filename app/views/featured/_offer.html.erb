@@ -1,0 +1,27 @@
+<div class="media offers">
+  <div class="media-left">
+    <%= link_to image_tag(offer.photo_url(:thumb), class: 'media-object img-rounded'), offer %>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading">
+      <%= link_to offer.title, offer %><br>
+      <%= l offer.start_at %> a <%= l offer.end_at %>
+    </h5>
+
+    <h5><strong><%= offer.entity_name %></strong></h5>
+
+    <%= truncate offer.description, length: 120 %>
+  </div>
+
+  <% if display_links %>
+    <div class="links">
+      <% if can? :read, :application_button %>
+        <%= render 'application_buttons', offer_id: offer.id %>
+      <% end %>
+
+      <% if can? :update, offer %>
+        <%= link_to 'Editar', [:edit, offer], class: 'btn btn-primary btn-sm' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

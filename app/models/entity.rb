@@ -13,4 +13,16 @@ class Entity < User
                   uniqueness: true
 
   scope :professional_activity, ->(value) { where(professional_activity: value) }
+
+  scope :featured, -> do
+    most_have_interested_ones.most_have_active_offers
+  end
+
+  scope :most_have_active_offers, -> do
+    select('users.*, count(offers.entity_id) AS active_offers_count').
+    joins(:offers).
+    where(offers: { active: true }).
+    group('users.id').
+    order('active_offers_count DESC')
+  end
 end

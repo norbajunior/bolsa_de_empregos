@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
   scope :place, ->(place) { where(place: place) }
   scope :type, ->(type) { where(type: type) }
 
+  scope :most_have_interested_ones, -> do
+    joins(:interested).
+    select('users.*, count(interests.user_id) AS count_interested').
+    group('users.id').order('count_interested DESC')
+  end
+
   validates :name, :email, presence: true
   validates :name, length: { in: 2..80 }
   validates :password, length: { minimum: 6 }, allow_blank: true

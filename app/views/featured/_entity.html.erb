@@ -1,0 +1,19 @@
+<div class="media">
+  <div class="media-left">
+    <%= link_to image_tag(entity.photo_url(:thumb), class: 'media-object img-rounded'), entity %>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading"> <%= link_to entity.name, entity %></h5>
+
+    <%= normalize_html_text entity.presentation, length: 170 %>
+  </div>
+  <div class="links">
+    <% if can? :read, :entity_interest_buttons %>
+      <%= render 'interest_buttons', user_id: entity.id %>
+    <% end %>
+
+    <% if can? :update, entity %>
+      <%= link_to 'Editar', [:edit, entity], class: 'btn btn-primary btn-sm' %>
+    <% end %>
+  </div>
+</div>

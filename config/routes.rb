@@ -21,6 +21,8 @@ BolsaDeEmpregos::Application.routes.draw do
   get 'candidates/:id/dashboard' => 'candidates#dashboard', as: :dashboard_candidate
   get 'entities/:id/dashboard' => 'entities#dashboard', as: :dashboard_entity
 
+  get 'featured' => 'featured#index'
+  
   resources :candidates
   resources :entities
   resources :news, only: [:index, :show]
