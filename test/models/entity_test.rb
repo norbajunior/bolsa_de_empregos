@@ -19,7 +19,8 @@ class EntityTest < ActiveSupport::TestCase
 
     should validate_length_of(:address).is_at_most(255)
     should validate_length_of(:zipcode).is_equal_to(8)
-    should validate_length_of(:contact).is_at_most(12)
+    should validate_length_of(:contact).is_at_least(8).is_at_most(20)
+    should validate_length_of(:other_contact).is_at_least(8).is_at_most(20)
 
     should allow_value('http://wiremaze.com').for(:site)
     should allow_value('https://wiremaze.com').for(:site)
