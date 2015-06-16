@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
   load_and_authorize_resource
-  
+
   before_action :set_entity, only: [:dashboard, :edit, :show, :update]
 
   def index
@@ -34,7 +34,7 @@ class EntitiesController < ApplicationController
 
   def update
     if @entity.update_attributes(entity_params.except!(:password, :password_confirmation))
-      flash[:notice] = 'Entidade criado com sucesso'
+      flash[:notice] = 'Entidade atualizada com sucesso'
     end
 
     respond_with @entity, location: [:dashboard, @entity]
