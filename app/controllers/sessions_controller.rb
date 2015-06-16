@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
           redirect_to [:dashboard, user]
         end
       else
-        flash.now[:warning] = 'Usuário inativo.'
+        flash.now[:warning] = 'Utilizador inativo'
 
         render 'new'
       end

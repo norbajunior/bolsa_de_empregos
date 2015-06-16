@@ -33,3 +33,15 @@ norberto:
   contact: (+351) 917 131 878
   experience: 4 years working with web development
   type: 'Candidate'
+
+backoffice:
+  email: backoffice@bolsademprego.pt
+  name: 'Backoffice'
+  password_digest: <%= ActiveSupport::TestCase.digest('123456') %>
+  type: Backoffice
+
+inactive:
+  email: inactive_user@mail.com
+  name: 'John Doe'
+  password_digest: <%= ActiveSupport::TestCase.digest('123456') %>
+  active: false
