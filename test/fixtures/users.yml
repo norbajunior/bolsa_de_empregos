@@ -24,10 +24,13 @@ norberto:
   date_of_birth: <%= Date.new(1987, 5, 14) %>
   address: Largo do Priorado, 80
   zipcode: 4050-476
-  photo: '022.gif'
-  place: Porto
+  place: <%= Concelhos::PORTO %>
   site: http://linkedin.com/in/norbajunior
   presentation: Ruby on Rails Engineer
+  employment_status: <%= EmploymentStatus::EMPLOYED %>
+  scholarity: <%= Scholarity::BACHAREL %>
+  identity_number: 285543873
+  professional_area: <%= ProfessionalArea::WEB_DEVELOPMENT %>
   contact: (+351) 917 131 878
   experience: 4 years working with web development
   type: 'Candidate'

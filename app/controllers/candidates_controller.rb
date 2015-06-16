@@ -22,10 +22,10 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
 
     if @candidate.save
-      log_in @candidate ; flash[:notice] = 'Candidato criado com sucesso'
+      log_in @candidate ; flash[:notice] = 'Candidato registado com sucesso'
     end
 
-    respond_with @candidate, location: [:dashboard, @candidate]
+    respond_with @candidate, location: dashboard_candidate_path(@candidate)
   end
 
   def update
@@ -33,7 +33,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = 'Candidato atualizado com sucesso'
     end
 
-    respond_with @candidate, location: [:dashboard, @candidate]
+    respond_with @candidate, location: dashboard_candidate_path(@candidate)
   end
 
   private

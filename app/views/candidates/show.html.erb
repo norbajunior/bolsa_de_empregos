@@ -29,10 +29,10 @@
     <p><%= @candidate.scholarity_humanize %></p><br>
 
     <h5><strong>Habilitações Literárias</strong></h5>
-    <%= @candidate.education.html_safe %><br>
+    <%= @candidate.education.try(:html_safe) %><br>
 
     <h5><strong>Experiência Profissional</strong></h5>
-    <%= @candidate.experience.html_safe %>
+    <%= @candidate.experience.try(:html_safe) %>
 
     <h3>Dados Pessoais</h3>
 
