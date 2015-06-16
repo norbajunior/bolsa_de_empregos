@@ -10,7 +10,7 @@
   </div>
 
   <div class="row">
-    <%= f.input :cv, wrapper_html: { class: 'col-xs-2' }, input_html: { 'data-max-size' => 2.megabytes } %>
+    <%= f.input :cv, wrapper_html: { class: 'col-xs-2' }, input_html: { 'data-max-size' => 4.megabytes } %>
     <%= f.hidden_field :cv_cache %>
 
     <%= f.input :professional_area, collection: ProfessionalArea, wrapper_html: { class: 'col-xs-3 col-xs-offset-4' } %>

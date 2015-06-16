@@ -6,7 +6,7 @@ class Candidate < User
   has_enumeration_for :scholarity
 
   mount_uploader :cv, FileUploader
-  
+
   has_many :entities, through: :interests, source: :user
   has_many :interested_entities, through: :interested, source: :interested
   has_many :applications, dependent: :restrict_with_exception
@@ -15,7 +15,7 @@ class Candidate < User
   validates :date_of_birth, timeliness: { on_or_before: -> { 15.years.ago }, type: :date }, allow_blank: true
   validates :date_of_birth, :professional_area, :cv, :scholarity, :employment_status, presence: true
   validates :identity_number, numericality: { only_integer: true }, length: { maximum: 15 }, allow_blank: true
-  validates :cv, file_size: { less_than: 2.megabytes }
+  validates :cv, file_size: { less_than: 4.megabytes }
 
   %i[employment_status professional_area scholarity].each do |name|
     scope name, ->(value) { where(name => value) }
