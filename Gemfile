@@ -17,7 +17,6 @@ gem 'kaminari', '0.15.1'
 gem 'faker'
 gem 'valid_url'
 gem 'validates_timeliness', '~> 3.0'
-gem 'pg_search'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.4'
