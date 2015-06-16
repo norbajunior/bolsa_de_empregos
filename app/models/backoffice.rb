@@ -1,7 +1,7 @@
 class Backoffice < User
   DEFAULT_PASSWORD = '123456'
 
-  before_validation :set_default_password
+  before_validation :set_default_password, on: :create
 
   private
 

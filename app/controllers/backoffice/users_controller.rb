@@ -32,9 +32,11 @@ class Backoffice::UsersController < Backoffice::BaseController
   def update_password
     if @user.update(password_params)
       flash[:notice] = 'Password alterada com sucesso'
-    end
 
-    respond_with @user, location: backoffice_user_path(@user)
+      redirect_to backoffice_user_path(@user)
+    else
+      render 'edit_password'
+    end
   end
 
   def destroy
