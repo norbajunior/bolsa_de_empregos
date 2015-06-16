@@ -43,3 +43,13 @@
 <%= render 'paginate', collection: @users %>
 
 <%= link_to 'Inserir', new_backoffice_user_path, class: 'btn btn-success' %>
+
+<script id="flash-message-template" type="text/x-handeblars-template">
+  <div class="alert alert-danger alert-dismissible" role="danger">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    {{msg}}
+  </div>
+</script>

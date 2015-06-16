@@ -9,7 +9,7 @@ class Offer < ActiveRecord::Base
 
   belongs_to :entity
 
-  has_many :applications, dependent: :restrict
+  has_many :applications, dependent: :restrict_with_exception
   has_many :candidates, through: :applications
 
   validates :photo, file_size: { less_than: 1.megabyte }

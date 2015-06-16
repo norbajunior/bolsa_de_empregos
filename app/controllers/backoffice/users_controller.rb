@@ -38,7 +38,11 @@ class Backoffice::UsersController < Backoffice::BaseController
   end
 
   def destroy
-    @user.destroy
+    begin
+      @user.destroy
+    rescue ActiveRecord::DeleteRestrictionError
+      @user.errors.add(:base, :"#{@user.type.underscore}_is_associated_with_applications")
+    end
 
     respond_with @user, location: backoffice_users_path
   end

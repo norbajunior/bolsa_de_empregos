@@ -9,7 +9,7 @@ class Candidate < User
   
   has_many :entities, through: :interests, source: :user
   has_many :interested_entities, through: :interested, source: :interested
-  has_many :applications
+  has_many :applications, dependent: :restrict_with_exception
   has_many :applied_offers, through: :applications, source: :offer
 
   validates :date_of_birth, timeliness: { on_or_before: -> { 15.years.ago }, type: :date }, allow_blank: true

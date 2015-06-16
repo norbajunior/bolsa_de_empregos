@@ -1,0 +1,10 @@
+<% if @user.errors.messages[:base].present? %>
+  var source = $('#flash-message-template').html(),
+      template = Handlebars.compile(source);
+
+  $('#backoffice').prepend(template({ msg: "<%= @user.errors.messages[:base].first %>" }));
+<% else %>
+  $("#<%= dom_id(@user) %>").fadeOut('slow', function() {
+    $(this).remove();
+  });
+<% end %>

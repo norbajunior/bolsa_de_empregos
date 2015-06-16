@@ -126,6 +126,8 @@ pt:
       carrierwave_integrity_error: "Não é uma imagem"
       carrierwave_download_error: "Não foi possível fazer o download"
       extension_white_list_error: "Não é possível fazer upload de arquivos %{extension}, somente: %{allowed_types}"
+      entity_is_associated_with_applications: Não foi possível remover o utilizador, pois possui ofertas com candidaturas
+      candidate_is_associated_with_applications: Não foi possível remover o utilizador, pois possui candidaturas
     template:
       body: 'Por favor, verifique os seguintes campos:'
       header:
