@@ -1,5 +1,5 @@
-class Password < ActionMailer::Base
-  default from: "no-reply@bolsademprego.pt"
+class PasswordMailer < ActionMailer::Base
+  default from: "backoffice@bolsademprego.pt"
 
   def reset(user)
     @user, @url = user, edit_forgot_password_url(user.password_reset_token)

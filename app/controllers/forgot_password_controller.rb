@@ -18,7 +18,7 @@ class ForgotPasswordController < ApplicationController
     if @user
       @user.generate_password_reset_token!
 
-      Password.reset(@user).deliver
+      PasswordMailer.reset(@user).deliver
 
       flash[:notice] = 'Um email para poderes redefinir sua senha foi te enviado'
 
