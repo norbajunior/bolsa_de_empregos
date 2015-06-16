@@ -8,7 +8,7 @@
     <h5>
       <%= candidate.professional_area_humanize %>
     </h5>
-    <%= normalize_html_text candidate.presentation %><br>
+    <%= normalize_html_text candidate.presentation, length: 120 %><br>
   </div>
 
   <% if display_links %>
