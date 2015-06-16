@@ -17,7 +17,7 @@ class SessionsControllerTest < ActionController::TestCase
 
       assert_template :new
 
-      assert_equal 'Usuário inativo', flash[:warning]
+      assert_equal 'Utilizador inativo', flash[:warning]
     end
   end
 
