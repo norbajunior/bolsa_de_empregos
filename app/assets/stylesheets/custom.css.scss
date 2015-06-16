@@ -86,10 +86,14 @@ $padding-left-lists: 0px;
 }
 
 .media {
-  min-height: 139px;
+  min-height: 140px;
   max-height: 160px;
 }
 
 .media-box {
   max-height: 160px;
+}
+
+.dashboard-section .media {
+  min-height: 110px;
 }
