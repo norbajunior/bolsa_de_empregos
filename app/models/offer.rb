@@ -35,7 +35,8 @@ class Offer < ActiveRecord::Base
 
   scope :similar_offers, ->(offer) do
     where(professional_activity: offer.professional_activity).
-    where.not(id: offer.id)
+    where.not(id: offer.id).
+    active
   end
 
   scope :place, ->(place) do
