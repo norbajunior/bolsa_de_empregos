@@ -25,9 +25,13 @@ class Offer < ActiveRecord::Base
 
   delegate :name, to: :entity, prefix: true
 
-  scope :title, ->(title) { where('title ILIKE ?', "%#{title}%") }
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
+
+  scope :query, ->(query) do
+    joins(:entity).
+    where('offers.title ILIKE ? OR users.name ILIKE ?', "%#{query}%", "%#{query}%")
+  end
 
   scope :similar_offers, ->(offer) do
     where(professional_activity: offer.professional_activity).
