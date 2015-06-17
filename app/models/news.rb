@@ -11,4 +11,5 @@ class News < ActiveRecord::Base
 
   scope :title, ->(title) { where('title ILIKE ?', "%#{title}%") }
   scope :active, -> { where(active: true) }
+  scope :featured, -> { where(featured: true, active: true) }
 end
