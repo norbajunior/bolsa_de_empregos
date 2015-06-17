@@ -47,6 +47,8 @@ class SessionsControllerTest < ActionController::TestCase
 
       assert_nil session[:user_id]
 
+      assert_equal 'Log out realizado com sucesso', flash[:notice]
+
       assert_redirected_to root_path
     end
   end
