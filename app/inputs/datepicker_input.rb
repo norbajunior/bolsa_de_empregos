@@ -4,7 +4,8 @@ class DatepickerInput < SimpleForm::Inputs::StringInput
 
     options = {
       value: value.nil?? nil : I18n.l(value),
-      data: { provide: 'datepicker', 'date-format' => 'dd/mm/yyyy' }
+      data: { provide: 'datepicker', 'date-format' => 'dd/mm/yyyy' },
+      placeholder: '__/__/____'
     }
 
     super.merge options
