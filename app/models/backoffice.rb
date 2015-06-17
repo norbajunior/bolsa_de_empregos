@@ -1,6 +1,8 @@
 class Backoffice < User
   DEFAULT_PASSWORD = '123456'
 
+  has_many :news, dependent: :nullify
+
   before_validation :set_default_password, on: :create
 
   private

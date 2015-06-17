@@ -128,6 +128,7 @@ pt:
       extension_white_list_error: "Não é possível fazer upload de arquivos %{extension}, somente: %{allowed_types}"
       entity_is_associated_with_applications: Não foi possível remover o utilizador, pois possui ofertas com candidaturas
       candidate_is_associated_with_applications: Não foi possível remover o utilizador, pois possui candidaturas
+      cant_destroy_current_user: Não é possível apagar o seu próprio registo
     template:
       body: 'Por favor, verifique os seguintes campos:'
       header:
