@@ -4,7 +4,7 @@
 ActiveRecord::Base.transaction do
   u = Backoffice.new({
     name: 'Backoffice',
-    email: 'backoffice@bolsademprego.pt',
+    email: 'backoffice@bolsa.pt',
     password: '123456',
     password_confirmation: '123456'
   })
@@ -45,11 +45,11 @@ ActiveRecord::Base.transaction do
     name: 'Wiremaze',
     address: 'Edifício Capitólio - Torre Venetto Av. França 256, Piso 6, Sala 6.8',
     zipcode: '4050-476',
-    place: 'Porto',
+    place: Concelhos::PORTO,
     site: 'http://wiremaze.com',
     remote_photo_url: 'https://s3.amazonaws.com/f.cl.ly/items/0n26012A3s1y2b0Y3g3Q/Screenshot%202015-06-08%2023.55.01.png',
     nif: 123456789,
-    professional_activity: 'Software Development',
+    professional_activity: ProfessionalActivity::SOFTWARE_DEVELOPMENT,
     presentation: 'Criamos soluções que ajudam os nossos clientes a ultrapassar os seus desafios de forma simples.',
     contact: '999 999 999',
     other_contact: '987 765 345'
