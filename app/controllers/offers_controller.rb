@@ -12,7 +12,7 @@ class OffersController < ApplicationController
   end
 
   def new
-    @offer = Offer.new
+    @offer = current_user.offers.new
   end
 
   def edit ; end
