@@ -9,7 +9,6 @@ class CandidateTest < ActiveSupport::TestCase
   end
 
   context 'validations' do
-    should validate_presence_of :photo
     should validate_presence_of :address
     should validate_presence_of :place
     should validate_presence_of :zipcode
@@ -17,7 +16,6 @@ class CandidateTest < ActiveSupport::TestCase
     should validate_presence_of :presentation
     should validate_presence_of :date_of_birth
     should validate_presence_of :professional_area
-    should validate_presence_of :cv
     should validate_presence_of :scholarity
     should validate_presence_of :employment_status
 

@@ -9,7 +9,6 @@ class EntityTest < ActiveSupport::TestCase
 
   context 'validations' do
     should validate_presence_of :professional_activity
-    should validate_presence_of :photo
     should validate_presence_of :address
     should validate_presence_of :place
     should validate_presence_of :zipcode

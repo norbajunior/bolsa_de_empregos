@@ -7,8 +7,7 @@ module SharedUserValidations
     validates :address, length: { maximum: 255 }
     validates :zipcode, length: { is: 8 }, allow_blank: true
     validates :contact, :other_contact, length: { in: 8..20 }, allow_blank: true
-    validates :photo,
-              :address,
+    validates :address,
               :place,
               :zipcode,
               :contact,
