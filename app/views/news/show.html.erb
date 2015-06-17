@@ -4,10 +4,11 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div class="news-text">
+    <div class="news-text text-justify">
       <div class="image">
         <%= image_tag @news.image_url(:news), class: 'img-thumbnail' %>
       </div>
+
       <%= @news.text.html_safe %>
     </div>
   </div>
