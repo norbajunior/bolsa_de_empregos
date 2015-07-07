@@ -1,0 +1,11 @@
+<div class="form-group">
+  <%= f.label :by_name, class: 'sr-only' %>
+
+  <div class="input-group">
+    <%= render 'button_search' %>
+
+    <%= f.input_field :by_name, placeholder: 'Pesquisar' %>
+  </div>
+</div>
+
+<%= f.input :type, collection: UserType, prompt: 'Tipo' %>
