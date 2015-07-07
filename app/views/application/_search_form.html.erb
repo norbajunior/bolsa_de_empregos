@@ -1,0 +1,7 @@
+<%= simple_form_for :filter, url: url, method: :get, html: { class: 'form-inline' },
+    defaults: { input_html: { class: 'form-control' },
+    wrapper_html: { class: 'form-group' },
+    label_html: { class: 'sr-only' } },
+    remote: true do |f| %>
+  <%= render 'search_fields', f: f %>
+<% end %>

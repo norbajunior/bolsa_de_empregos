@@ -1,0 +1,9 @@
+<div id="collection">
+  <%= render partial: @collection.name.underscore, collection: @collection, locals: { display_links: true } %>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= paginate @collection, remote: true %>
+    </div>
+  </div>
+</div>

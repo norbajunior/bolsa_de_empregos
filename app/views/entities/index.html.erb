@@ -1,23 +1,5 @@
 <h3>Entidades</h3>
 
-<%= simple_form_for :filter, url: entities_path, method: :get, html: { class: 'form-inline' },
-    defaults: { input_html: { class: 'form-control' },
-    wrapper_html: { class: 'form-group' },
-    label_html: { class: 'sr-only' } } do |f| %>
-  <div class="form-group">
-    <%= f.label :query, class: 'sr-only' %>
+<%= render 'search_form', url: entities_path %>
 
-    <div class="input-group">
-      <%= render 'button_search' %>
-
-      <%= f.input_field :query, placeholder: 'Pesquisar' %>
-    </div>
-  </div>
-
-  <%= f.input :professional_activity, collection: ProfessionalActivity, prompt: 'Área de Atividade' %>
-  <%= f.input :place, collection: Concelhos, prompt: 'Concelhos' %>
-<% end %>
-
-<%= render partial: 'entity', collection: @entities, locals: { display_links: true } %>
-
-<%= render 'paginate', collection: @entities %>
+<%= render 'index' %>
