@@ -1,24 +1,5 @@
 <h3>Candidatos</h3>
 
-<%= simple_form_for :filter, url: candidates_path, method: :get, html: { class: 'form-inline' },
-    defaults: { input_html: { class: 'form-control' },
-    wrapper_html: { class: 'form-group' },
-    label_html: { class: 'sr-only' } } do |f| %>
-  <div class="form-group">
-    <%= f.label :query, class: 'sr-only' %>
+<%= render 'search_form', url: candidates_path %>
 
-    <div class="input-group">
-      <%= render 'button_search' %>
-
-      <%= f.input_field :query, placeholder: 'Pesquisar' %>
-    </div>
-  </div>
-
-  <%= f.input :professional_area, collection: ProfessionalArea, prompt: 'Área Profissional' %>
-  <%= f.input :employment_status, collection: EmploymentStatus, prompt: 'Situação Profissional' %>
-  <%= f.input :place, collection: Concelhos, prompt: 'Concelhos' %>
-<% end %>
-
-<%= render partial: 'candidate', collection: @candidates, locals: { display_links: true } %>
-
-<%= render 'paginate', collection: @candidates %>
+<%= render 'index' %>

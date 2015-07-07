@@ -3,8 +3,10 @@ class CandidatesController < ApplicationController
 
   before_action :set_candidate, only: [:dashboard, :edit, :show, :update]
 
+  respond_to :html, :js, only: [:index]
+
   def index
-    @candidates = Search.by(Candidate.all, filter_params).page(params[:page])
+    @collection = Search.by(Candidate.all, filter_params).page(params[:page])
   end
 
   def dashboard

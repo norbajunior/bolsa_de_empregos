@@ -1,0 +1,13 @@
+<div class="form-group">
+  <%= f.label :query, class: 'sr-only' %>
+
+  <div class="input-group">
+    <%= render 'button_search' %>
+
+    <%= f.input_field :query, placeholder: 'Pesquisar' %>
+  </div>
+</div>
+
+<%= f.input :professional_area, collection: ProfessionalArea, prompt: 'Área Profissional' %>
+<%= f.input :employment_status, collection: EmploymentStatus, prompt: 'Situação Profissional' %>
+<%= f.input :place, collection: Concelhos, prompt: 'Concelhos' %>
