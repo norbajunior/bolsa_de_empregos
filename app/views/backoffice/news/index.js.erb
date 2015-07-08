@@ -1,0 +1,3 @@
+$('tbody').html("<%= escape_javascript(render @news) %>")
+
+$('#pagination').html("<%= escape_javascript(render('paginate', collection: @news)) %>");
