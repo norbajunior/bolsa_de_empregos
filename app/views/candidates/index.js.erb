@@ -1,1 +1,1 @@
-$('#collection').html("<%= escape_javascript(render partial: @collection.name.underscore, collection: @collection, locals: { display_links: true } ) %>").append("<%= escape_javascript(render('paginate', collection: @collection)) %>");
+<%= render 'update_index' %>

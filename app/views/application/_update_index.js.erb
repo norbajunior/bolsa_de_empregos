@@ -1,0 +1,1 @@
+$('#collection').html("<%= j(render(partial: @collection.name.underscore, collection: @collection, locals: { display_links: true }) || search_results_message) %>").append("<%= j(render('paginate', collection: @collection)) %>");
