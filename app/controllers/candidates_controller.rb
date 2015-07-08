@@ -6,7 +6,7 @@ class CandidatesController < ApplicationController
   respond_to :html, :js, only: [:index]
 
   def index
-    @collection = Search.by(Candidate.all, filter_params).page(params[:page])
+    @collection = Candidate.by(filter_params).page(params[:page])
   end
 
   def dashboard

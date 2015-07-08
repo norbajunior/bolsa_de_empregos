@@ -2,7 +2,7 @@ class Backoffice::NewsController < Backoffice::BaseController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
   def index
-    @news = Search.by(News.all, filter_params).page(params[:page])
+    @news = News.by(filter_params).page(params[:page])
   end
 
   def show

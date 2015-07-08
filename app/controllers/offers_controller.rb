@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @collection = Search.by(Offer.active.includes(:entity), filter_params).page(params[:page])
+    @collection = Offer.by(filter_params).active.includes(:entity).page(params[:page])
   end
 
   def show

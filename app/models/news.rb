@@ -1,4 +1,5 @@
 class News < ActiveRecord::Base
+  extend Searchable
   include DefaultScope
 
   belongs_to :user # backoffice

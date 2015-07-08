@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend Searchable
   include DefaultScope
 
   attr_accessor :current_password

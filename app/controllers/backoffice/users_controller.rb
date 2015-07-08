@@ -2,7 +2,7 @@ class Backoffice::UsersController < Backoffice::BaseController
   before_action :set_user, except: [:index, :new, :create]
 
   def index
-    @users = Search.by(User.all, filter_params).page(params[:page])
+    @users = User.by(filter_params).page(params[:page])
   end
 
   def new

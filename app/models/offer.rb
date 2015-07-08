@@ -1,4 +1,5 @@
 class Offer < ActiveRecord::Base
+  extend Searchable
   include DefaultScope
 
   has_enumeration_for :professional_activity
