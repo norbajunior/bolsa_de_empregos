@@ -22,7 +22,8 @@
 $(function() {
   // refactor :(
   // add or remove an interest
-  $('a[data-interested]').click(function (e) {
+
+  $('#collection').on('click', 'a[data-interested]', function (e) {
     e.preventDefault();
 
     var that   = $(this),
@@ -46,7 +47,7 @@ $(function() {
   });
 
   // add or remove an application
-  $('a.application').click(function (e) {
+  $('#collection').on('click', 'a.application', function (e) {
     e.preventDefault();
 
     var that   = $(this),
