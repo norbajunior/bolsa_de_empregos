@@ -1,0 +1,3 @@
+$('tbody').html("<%= escape_javascript(render partial: 'user', collection: @users) %>")
+
+$('#pagination').html("<%= escape_javascript(render('paginate', collection: @users)) %>");

@@ -1,0 +1,10 @@
+<tr id="<%= dom_id(user) %>">
+  <td><%= user.name %></td>
+  <td><%= UserType.t(user.type) %></td>
+  <td><%= t user.active.to_s %></td>
+  <td colspan="3" class="text-right">
+    <%= link_to 'Detalhe', backoffice_user_path(user), class: 'btn btn-default' %>
+    <%= link_to 'Editar', edit_backoffice_user_path(user), class: 'btn btn-primary' %>
+    <%= link_to 'Apagar', backoffice_user_path(user), class: 'btn btn-danger', data: { method: :delete, remote: true } %>
+  </td>
+</tr>

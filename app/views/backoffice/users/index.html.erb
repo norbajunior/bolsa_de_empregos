@@ -10,22 +10,13 @@
     <th width="35%">Ações</th>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
-      <tr id="<%= dom_id(user) %>">
-        <td><%= user.name %></td>
-        <td><%= UserType.t(user.type) %></td>
-        <td><%= t user.active.to_s %></td>
-        <td colspan="3" class="text-right">
-          <%= link_to 'Detalhe', backoffice_user_path(user), class: 'btn btn-default' %>
-          <%= link_to 'Editar', edit_backoffice_user_path(user), class: 'btn btn-primary' %>
-          <%= link_to 'Apagar', backoffice_user_path(user), class: 'btn btn-danger', data: { method: :delete, remote: true } %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render partial: 'user', collection: @users %>
   </tbody>
 </table>
 
-<%= render 'paginate', collection: @users %>
+<div id="pagination">
+  <%= render 'paginate', collection: @users %>
+</div>
 
 <%= link_to 'Inserir', new_backoffice_user_path, class: 'btn btn-success' %>
 
