@@ -18,6 +18,8 @@
 //= require jquery.mask
 //= require handlebars
 
+var Entities = { Dashboard: { Offers: {} } };
+
 $(function() {
   // refactor :(
   // add or remove an interest
