@@ -17,7 +17,6 @@
 //= require bootstrap-filestyle
 //= require jquery.mask
 //= require handlebars
-//= require_tree .
 
 $(function() {
   // refactor :(
